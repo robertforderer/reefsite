@@ -1,0 +1,550 @@
+<li><a href="website2.html"> Back to Home Page </a></li>
+    </body>
+    <p align="center">
+        Background:
+    </p>
+    <p>
+    Company ABC is going to enter City XYZ selling a daily used, non-perishable
+    product. Our team Analyzed this market entrance using two separate linear
+    programming models to minimize Company ABC's costs.
+</p>
+    <p align="center">
+        Forecasting Demand:
+    </p>
+<p>
+    Before we could create these models, we had to calculate the demand of each
+    district of City XYZ. Company ABC recently completed a survey in each
+    district regarding daily usage of similar products and percent of answers
+    statistics for three categories: "Definitely Yes", "Yes", and "Maybe".
+    Thomas Juster, a famous statistician, argued that customer survey questions
+    typically contained underlying probability implications. Eric and Larry
+    Risen, of BioTrak Research Inc., a market research firm, discussed a study
+    in which Juster's scale was tested on individuals purchasing soup and
+    yogurt. The surveyors then asked the customers which goods they actually
+    purchased. Eric and Larry Risen used this data to interpret Juster's scale
+    more accurately. Juster interpreted responses to "Certain, Practically
+    Certain", "Very Probable", and "Fairly good possibility" as 99%, 80%, and
+    50% probability of purchase respectively. Eric and Larry Risen found that
+    more accurate interpretations of these responses would be 83%, 66%, and 39%
+    respectively. (Risen, 4) Company ABC's survey uses slightly different
+    wording than Juster's surveys and they are selling neither yogurt nor soup.
+    Nevertheless, Eric and Larry Risen's study involves customer follow up.
+    Furthermore, the regression line that they used to create the response
+    definitions had an R<sup>2</sup> of .9435. (An R<sup>2</sup> score that is
+    close to 1 is an indication that their model is extremely accurate.)
+    Therefore, I decided to interpret "Definitely Yes" as 83%, "Yes" as 69%,
+    and "Maybe" as 39% purchase probability. (See appendix for exact demand
+    calculations.) It is important to note that obtaining data based on
+    customer feedback is not as accurate as time series forecasting methods.
+    Once a few months of data has been generated, the supply chain manager
+    should use data from actual store sales as opposed to the data generated
+    from the customer survey to estimate average demand and standard deviation
+    of demand.
+</p>
+<p align="center">
+        Store Location Decisions:
+    </p>
+<p>
+    Once our team calculated demand, our next step was to determine which
+    stores to open and which districts to assign these stores to. We used a
+    method called linear programming to make these decisions. Linear
+    programming is a process in which decisions are made on variables given
+    certain constraints. The goal of linear programming is to either minimize
+    or maximize an equation called "the objective function". In our team's
+    linear program, the goal was to minimize the cost of opening stores. The
+    constraints in our linear program involved a sales minimum of 100 and a
+    sales maximum of 226. (We wanted to leave a 24 unit cushion for possible
+    fluctuations in demand.) Another important constraint was the maximum
+    distance that a store could be from a district it served. If the maximum
+    distance was low, then the cost of opening stores would be relatively small
+    while shipping would be high. However, if the maximum distance was small,
+    the cost of opening stores would be high while the cost of shipping would
+    be low. Because we do not know where Company ABC's customers live, we do
+    not know the cost of delivery. Nevertheless, since stores typically deliver
+    to customers on a daily basis, we decided that constraining the maximum
+    distance to a small number while incurring higher store costs was the best
+    decision. Therefore, I constrained the maximum service distance for each
+    district to ten miles except for district 9. (District 9's retail store is
+    14 miles away.) A maximum service distance of twenty miles incurred
+    approximately $12,000 less in store costs. Nevertheless, "last mile
+    delivery" is often one of the most expensive parts of a supply chain; the
+    money saved from more efficient daily delivery routes would certainly
+    outweigh the added store expense. The result of the 930 variable linear
+    program was 17 retail stores assigned to 30 districts and a total cost of
+    $69,400. (See Appendix)
+</p>
+<p align="center">
+        Factory, Production, Inventory,and Delivery Decisions :
+    </p>
+<p>
+    Once our group made decisions regarding retail stores and district
+    assignments, we constructed a second linear program to make production,
+    inventory, shipping, and production facility decisions. Since retail store
+    to district relationships had been considered in the first model, this
+    model only accounts for retail stores and production facilities. This
+    linear program represents one week of operation in City XYZ for Company
+    ABC. Inventory from day 7 is linked to day 1. Therefore, the program is a
+    weekly plan that Company ABC could use over and over. (To start the weekly
+    cycle, Company ABC would have to start with start with day 1 inventory
+    levels as specified by the program.) If demand shifts dramatically, new
+    demand numbers could be entered into the program and a new weekly plan
+    could be developed within ten minutes. This new program would have the same
+    production facilities because these facilities would have already been
+    constructed. Nevertheless, production plans, shipping assignments, and
+    inventory levels can always be adjusted in case demand fluctuates
+    significantly.
+</p>
+<p>
+    The majority of the decision variables in the second linear program are
+    either numeric variables for amounts shipped or binary variables
+    representing trucks traveling from one point to another. These two sets of
+    variables are linked so that when a certain amount of product is shipped
+    from one point to another, a corresponding binary truck variable is
+    activated. The "amount shipped" variables allow the program to make
+    production, shipment, inventory decisions, while the "binary truck"
+    variables allow the program to account for shipment costs between
+    locations. Another feature of our model is that one truck is capable of
+    making stops at multiple retail locations before returning to a factory. In
+    fact, if a retail location records that a truck arrives and does not travel
+    to another retail location, the truck is prompted to return to a factory.
+    This feature has its own set of binary decision variables, signifying a
+    return trip from any retail store to any existing factory. The last set of
+    decision variables are facility decision variables which signify whether or
+    not a production facility is constructed. These variables allow the program
+    to consider shipment and inventory decisions at the same time as facility
+    location decisions. The result of the 6,595 variable program is building
+    facilities at locations 1, 2, and 3. A total of 29 trucks leave the
+    factories and 93 total deliveries are made. Each retail store keeps between
+    8 to 11 units of safety stock at all times. The cost of one week's
+    operation in the second linear program is approximately $220,000.
+    Therefore, the total cost of one week of operation is approximately
+    $289,000, not including daily van deliveries from retail stores to
+    customer's homes. (See appendix for formulation and results.)
+</p>
+<p>
+    <u>(3 important model 2 clarifications)</u>
+</p>
+<p>
+    <u>
+        1)Trucks do not always return to their starting factory, but they
+        always return to a factory that exists.
+    </u>
+</p>
+<p>
+    <u>
+        2) In some instances, A truck delivers 0 to a retail store. This only
+        arises because the shortest distance between two points is not always a
+        line in this data set. For example, from District 28 to District 2 (6
+        miles), District 2 to District 6 (5), District 6 to Factory 3(19) =
+        District 28 to 3.(30) Thus, making multiple stops with 0 units is still
+        optimal.
+    </u>
+</p>
+<p>
+    <u>
+        3) In two instances, "amounts shipped" figures not originating in the
+        factories appear. However, the unaccounted units of product are not
+        then sold. Furthermore, the model can still be interpreted as if they
+        did not exist and they do not increase the objective function.
+    </u>
+</p>
+<p align="center">
+    <u>work cited</u>
+</p>
+<p>
+    Risen, Eric, and Larry Risen. "The Use of Intent Scale Translations to
+    Predict Purchase Interest." BioTrak, 19 Dec. 2009. Web. 10 Mar. 2017.
+</p>
+<p align="center">
+    <u>Appendix</u>
+</p>
+<p>
+    <u>
+        Note: I will use words as opposed to variable declaration for
+        readability and space conservation
+    </u>
+</p>
+<p>
+    <u>
+        step 1: computing demand (response definitions from Eric and Larry
+        Risen of BioTrak market research
+    </u>
+    )
+</p>
+<p>
+    district demand = (daily usage*"Definitely Yes" %*.83) + (daily
+    usage*"yes"%*.66) + (daily usage*"maybe"%*.39)
+</p>
+<p>
+    standard deviation of demand = (1-R<sup>2</sup>)*district demand
+</p>
+<p>
+    (used to calculate safety stock. R<sup>2</sup> is from Eric and Larry
+    Risen's model. this is an estimate, not actual standard deviation)
+</p>
+<p>
+    <u>
+        step2: deciding which retail stores to build and which districts they
+        will serve
+    </u>
+</p>
+<p>
+    <u></u>
+</p>
+<p>
+    <u>Decision Variables:</u>
+    1) Whether or not a district contains a retail store (30 binary variables)
+    2) Whether or not each retail store serves each district (900 binary
+    variables)
+</p>
+<p>
+    <u>Objective Function:</u>
+    (only subset 1 is included in objective function)
+</p>
+<p>
+    SWhether or not a district contains a retail store * (fixed weekly
+    operating cost + additional weekly store cost) = Minimize Costs
+</p>
+<p>
+    <u>Constraints:</u>
+</p>
+<p>
+    1) Each district is limited to one retail store
+</p>
+<p>
+    SPotential Retail assignments for each district = 1 (30 constraints, repeat
+    for each district.)
+</p>
+<p>
+    2) Each district must be served by a retail store within a ten mile radius
+    (except for district 9)
+</p>
+<p>
+    S(Potential Retail Assignment * Distance between stores) &lt;= 10 (30
+    constraints, repeat for each district)
+</p>
+<p>
+    3) Retail Sales Maximum
+</p>
+<p>
+    S(district demand * whether or not a retail store is assigned to a
+    district) &lt;= 226 (30 constraints, repeat for each district)
+</p>
+<p>
+    4) Retail Sales Minimum
+</p>
+<p>
+    S(district demand * whether or not a retail store is assigned to a
+    district) - 100 &gt;= 100*(whether a district contains a store or not - 1)
+    (30 constraints, repeat for each district)
+</p>
+<p>
+    5) Store activation (if a store is not included in objective function, it
+    cannot serve any districts)
+</p>
+<p>
+    (whether a district contains a store*30) &gt;= Swhether or not a store
+    serves a particular district
+</p>
+<p>
+    6) If a retail store is opened, it must serve its own district
+</p>
+<p>
+    whether or not a store exists &gt;= whether or not that store serves itself
+</p>
+<p>
+    7) Non-negativity
+</p>
+<p>
+    <u>Results:</u>
+</p>
+<p>
+    -Every district is within a ten mile radius of its corresponding store
+    except district 9
+</p>
+<p>
+    - <u>Which stores are built and which districts they serve: </u>Store 1:
+    serves district 1, Store 2: districts 2, 19, Store 4: district 4, Store 6:
+    6, Store 7: districts 3, 7, 29, Store 8: districts 8, 14, Store 15:
+    districts 15, 27, Store 16: districts 16, 20, Store 17: districts 17, 9,
+    Store 18: districts 12, 18, 25, Store 21: district 21, Store 22: district
+    22, Store 23: district 23, Store 24: district 24, 5, Store 26: districts
+    26, 10, 11, Store 28: 28, 13, Store 30: district 30
+</p>
+<p>
+    -Total weekly store cost: $69,400
+</p>
+<p>
+    <u>
+        Step 3: Production Facility, Shipment, Inventory, and Production
+        Decisions
+    </u>
+</p>
+<p>
+    <u>Decision Variables:</u>
+    Every day variables: Amount shipped from Factory to Stores, Amount Shipped
+    from Stores to other Stores, Sales, Inventory, trucks from factory to
+    stores(binary), trucks from stores to stores(binary), trucks from stores to
+    factories(binary) Weekly Variables: facility decision (binary)
+</p>
+<p>
+    <u>Objective Function:</u>
+    S(amount shipped from factory to store *5) + S(inventory*.05) + S(trucks
+    from factory to stores * distance from factory to stores * 3) + S(trucks
+    from stores to other stores * distance between stores * 3) + S(trucks from
+    stores to factories * distance from factories to stores * 3) + S(facility
+    decision * (fixed weekly operating cost + additional weekly facility cost))
+</p>
+<p>
+    <u>Constraints: </u>
+</p>
+<p>
+    1) Demand
+</p>
+<p>
+    Sales for every store = Demand for every store (119 constraints, repeat for
+    every store every day)
+</p>
+<p>
+    2) inventory balance
+</p>
+<p>
+    Sales = (Amount shipped in - Amount shipped out) + (yesterday's inventory -
+    today's inventory) (repeat for every store every day)
+</p>
+<p>
+    3) Safety Stock {(calculation at 95% significance: safety stock =
+    1.65*SQRT(avg lead time*standard deviation of demand)) Note: standard
+deviation of demand is estimated with (1-R<sup>2</sup>) * demand (R    <sup>2</sup> originates from Risen's model)}
+</p>
+<p>
+    inventory &gt;= safety stock (repeat for every store every day)
+</p>
+<p>
+    4) Factory to store amount shipped link
+</p>
+<p>
+    SAmount shipped from all factories to one store = Amount shipped from that
+    store to itself (incurs shipping cost of 0) (Repeat for every store, every
+    day)
+</p>
+<p>
+    5) Factory to store truck link
+</p>
+<p>
+    STrucks used from all factories to one store = Trucks used from that store
+    to itself (Repeat every store every day)
+</p>
+<p>
+    6) Truck Return
+</p>
+<p>
+    SInward Trucks into a store = STrucks leaving store to go to another store
+    + STrucks returning to a factory (Repeat every store every day)
+</p>
+<p>
+    7) Truck and Amount shipped link (links truck and amount shipped variables)
+</p>
+<p>
+    amount shipped &lt;= (corresponding binary truck variable)* (repeat for
+    every truck/amount shipped connection. truck return binary variables not
+    included)
+</p>
+<p>
+    8) Amount received must be less than amount that leaves
+</p>
+<p>
+    amount shipped inward &lt;= amount shipped outward (repeat for every store
+    every day)
+</p>
+<p>
+    9) Whole Model Capacity
+</p>
+<p>
+    SEntire weekly output for one factory &lt;= (Binary facility decision
+    variable)*weekly factory capacity (repeat for every factory, 5 constraints)
+</p>
+<p>
+    10) Only factories ABC builds can have trucks return to them (another whole
+    model constraint)
+</p>
+<p>
+    SEvery binary truck return variable for one factory &lt;= 1000 * binary
+    facility decision variable (repeat for every factory)
+</p>
+<p>
+    11)Non-negativity
+</p>
+<p>
+    <u>Results: </u>
+</p>
+<p>
+    - Construct production facilities 1, 2 and 3. Each facility has 1500, 631,
+    and 631 units of excess capacity respectively.
+</p>
+<p>
+    <u>Day 1:</u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 15 with 750, drops 387. District 15 to
+    District 28 with 363, drops 207. District 28 to District 2 with 156, drops
+    119. District 2 to District 6, drops 37. District 6 to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 1 to District 16 with 750, drops 239. District 16 to Store
+    8 with 511, drops 460. District 8 to District 30, drops 51. District 30 to
+    Factory 2.
+</p>
+<p>
+    Truck 3: Factory 2 to District 18 with 750, drops 0. District 18 to
+    District 23 with 750, drops 444. District 23 to District 26 with 306, drops
+    306. District 26 to District 18 with 0. District 18 to Factory 2.
+</p>
+<p>
+    Truck 4: Factory 2 to District 24 with 750, drops 442. District 24 to
+    District 4 with 308, drops 308. District 4 to Factory 2.
+</p>
+<p>
+    <u>Day 2:</u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 1 with 750, drops 276. District 1 to
+    District 28 with 474, drops 269. District 28 to District 2 with 205, drops
+    119. District 2 to District 6 with 86, drops 86. District 6 to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 1 to District 16 with 750, drops 105. District 16 to 21
+    with 645, drops 450. District 21 to District 7 with 195, drops 195.
+    District 7 to Factory 3.
+</p>
+<p>
+    Truck 3: Factory 3 to District 17 with 619, drops 619. District 17 to
+    Factory 3.
+</p>
+<p>
+    <u>Day 3: </u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 6 with 759, drops 0. District 6 to District
+    2 with 750, drops 238. District 2 to District 6 with 512, drops 512.
+    District 6 to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 2 to District 8 with 750, drops 580. District 8 to
+    District 16 w/ 170, drops 170. District 16 to Factory 1.
+</p>
+<p>
+    Truck 3: Factory 1 to District 16 with 750, drops 2. District 16 to
+    District 7 w/ 748, drops 381. District 7 to District 23 w/ 367, drops 222.
+    District 23 to District 28 w/ 145, drops 145. District 28 to District 2 w/
+    0. District 2 to Factory 3.
+</p>
+<p>
+    Truck 4: Factory 2 to District 18 w/ 680, drops 296. District 2 to District
+    30, drops 384. District 30 to Factory 2.
+</p>
+<p>
+    Truck 5: Factory 2 to District 26 w/ 750, drops 176. District 26 to
+    District 4 w/ 574, drops 154. District 4 to District 22 w/ 420, drops 196.
+    District 22 to District 24 w/ 224, drops 224. District 24 to Factory 2.
+</p>
+<p>
+    <u>Day 4: </u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 1 w/ 750, drops 138. District 1 to District
+    23 w/ 612, drops 405. District 23 to District 28 w/ 207, drops 207.
+    District 28 to District 2 w/ 0. District 2 to District 6 w/ 0. District 6
+    to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 1 to District 7 w/ 750, drops 9. District 7 to District
+    21, w/ 741, drops 225. District 21 to District 15, w/ 516, drops 516.
+    District 15 to Factory 3.
+</p>
+<p>
+    Truck 3: Factory 1 to District 16 w/ 750, drops 525. District 15 to
+    District 30 w/ 225, drops 225. District 30 to Factory 2
+</p>
+<p>
+    Truck 4: Factory 2 to District 18 w/ 750, drops 0. District 18 to District
+    26 w/ 750, drops 750. District 26 to District 18 w/ 0. District 18 to
+    Factory 2.
+</p>
+<p>
+    Truck 5: Factory 2 to District 24 w/ 750, drops 224. District 24 to
+    District 22 w/ 526, drops 372. District 22 to District 4 w/ 154, drops 154.
+    District 4 to Factory 2
+</p>
+<p>
+    <u>Day 5:</u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 1 w/ 750, drops 276. District 1 to District
+    28 w/ 639, drops 207. District 28 to District 23 w/ 432, drops 261.
+    District 23 to District 2 w/ 171, drops 128. District 2 to District 6 w/
+    43, drops 43. District 6 to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 1 to District 16 w/ 750, drops 0. District 16 to District
+    21 w/ 750, drops 390. District 21 to District 7 w/ 360, drops 195. District
+    7 to District 1, w/ 165, drops 165. District 1 to Factory 3.
+</p>
+<p>
+    Truck 3: (must occur before Truck 4) Factory 2 to District 18 w/ 750, drops
+    296. District 18 to District 24 w/ 454, drops 454. District 25 to Factory
+    2.
+</p>
+<p>
+    Truck 4: Factory 2 to District 24 w/ 744, <u>picks up 6</u> (from truck 3),
+    District 24 to District 4 w/ 750, drops 462. District 4 to District 22 w/
+    288, drops 112. District 22 to District 17 w/ 176, drops 176. District 17
+    to Factory 2
+</p>
+<p>
+    <u>Day 6:</u>
+</p>
+<p>
+    Truck 1: Factory 3 to District 6 w/ 750, drops 0. District 6 to District 2
+    w/ 750, drops 229. District 2 to District 28 w/ 521, drops 336. District 28
+    to District 6 w/ 185, drops 185. District 6 to Factory 3.
+</p>
+<p>
+    Truck 2: Factory 1 to District 8 w/ 750, drops 416. District 8 to District
+    21 w/ 334, drops 60. District 21 to District 7 w/ 274, drops 195. District
+    7 to District 21 w/ 79, drops 0. District 21 to District 16 w/ 79, drops
+    79. District 16 to Factory 1
+</p>
+<p>
+    Truck 3: Factory 2 to District 30 w/ 455, drops 455. District 30 to Factory
+    2 w/ 0.
+</p>
+<p>
+    <u>Day 7:</u>
+</p>
+<p>
+    Truck 1: Factory 1 to District 16 w/ 750, drops 84. District 16 to District
+    7 w/ 666, drops 390. District 7 to District 1, drops 276. District 1 to
+    Factory 3.
+</p>
+<p>
+    Truck 2: Factory 3 to District 17 w/ 750, drops 318. District 17 to
+    District 6 w/ 432, drops 432. District 6 to Factory 3
+</p>
+<p>
+    Truck 3: Factory 2 to District 23 w/ 750, drops 0. District 23 to District
+    28 w/ 750, drops 78. District 28 to District 23, w/ 672, drops 222.
+    District 23 to District 21 w/ 450, drops 450. District 21 to District 30 w/
+    0. District 30 to Factory 2.
+</p>
+<p>
+    Truck 4: Factory 2 to District 24 w/ 740, drops 230. District 24 to
+    District 22 w/ 510, drops 510. District 24 to District 22 w/ 0. District 24
+    to Factory 2
+</p>
+<p>
+    Truck 5: Factory 2 to District 30 w/ 750, drops 306. District 30 to
+    District 18 w/ 444, drops 444. District 18 to Factory 2.
+</p>
+<img src="http://i.imgur.com/rLQ3Tpd.png">
+</html>

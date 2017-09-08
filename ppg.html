@@ -1,0 +1,287 @@
+<a href="website2.jsp"> Back to Home Page </a></li>
+        <p align="center">
+    Using Multiple Regression to Analyze Points per Game of 50 NBA players
+</p>
+<p>
+    I decided to use predictor variables from the 2014-2015 season to predict
+    2015-2016 points per game of 50 of the top NBA scorers. (The season starts
+    in the fall and ends in the spring, so one season is referred to with two
+    years.) I was attempting to predict the scoring of individual players as
+    opposed to what their rank was. For example, instead of predicting the ppg
+    of the #1 scorer, I tried to predict the scoring of Russell Westbrook.
+    Certain top players had to be left out of the model because they were
+    injured for a significant part of either season.
+</p>
+<p>
+    The first step in creating my regression model was choosing variables that
+    correlate with points per game. I gathered my data from
+    Basketball-Reference.com which contains extensive basketball statistics for
+    every NBA player in every year. The first variable that I used was points
+    per game of the previous season. While players may rise and fall in their
+    careers, a player's points per game is typically somewhat similar to their
+    previous season's points per game. I thought this statistic would show a
+    positive correlation. The second variable I thought my correlate with
+    points per game is a player's rank in points per game. The highest scoring
+    player (rank 1) will probably have a points per game somewhere from 27
+    points per game to 30 points per game. The fiftieth highest scoring player
+    (rank 50) will probably have a points per game of approximately 15. I
+    thought this statistic would show a negative correlation. The third
+    variable is a player's salary. (I used 2015-2016 salary for this variable
+    because a lot of the young, up and coming, players signed big contracts and
+    had considerably smaller salaries in the 2014-2015 season.) Points per game
+    is probably the most important statistic in basketball and I thought that
+    higher paid players would probably score more. I thought this statistic
+    would show a positive correlation. The fourth variable is assists per game.
+    (An assist is when a player passes the ball to a second player who scores.)
+    I thought that players who pass the ball more than shoot the ball would
+    score less. Therefore, I thought this variable might have a negative
+    correlation with points per game.
+</p>
+<p>
+    The fifth variable I chose was minutes per game. I thought that if a player
+    was on the court for more minutes, they would probably score more. I
+    thought this statistic would show a positive correlation. The sixth
+    variable I chose was the highest points per game of a different player on
+    the team. If the player I was testing had the highest points per game on
+    the team, I chose the second highest points per game of a player on the
+    team. In an NBA game, there are only so many shots that can be taken by one
+    particular team. Therefore, one star-player can reduce the points scored by
+    other players by taking away their shots. For example, if Michael Jordan is
+    on a team, his teammates will score less because Jordan is taking all the
+    shots. I thought that this variable would have a negative correlation with
+    a player's ppg because high scoring players take away points from his
+    teammates. I chose a seventh numeric variable because I thought all seven
+    were important. My seventh numeric variable I call "career regression
+    slope". This variable is intended to capture young players on the rise and
+    older players on the decline. I took a single variable regression of every
+    one of my players with time as the X (ending with 2014-2015 season) and ppg
+    as the Y. For players who played more than six years, I used the last six
+    years of their career. I then took the slope of this regression and used it
+    as an X variable. (see appendix for an example) I thought that older
+    players whose numbers are decreasing would be predicted to have less ppg
+    while younger players whose numbers are increasing would be predicted to
+    have more ppg. Young players on the rise were intended to have a higher
+    career regression slope while older players were intended to have a lower
+    or even negative career regression slope. Therefore, I thought this
+    variable would show positive correlation.
+</p>
+<p>
+    My eighth variable was a binary variable. It was whether or not a player
+    was an All-Star in 2014-2015 or not. Typically, All-Stars score more than
+    non-All-Stars. Therefore, I thought this variable would show positive
+    correlation.
+</p>
+<p>
+    I then performed a process known as step-wise regression to figure out the
+    best mixture of variables to predict ppg for 2015-2016 NBA players. In
+    forward step-wise regression, I locate the best single predictor and then
+    gradually add other variables. I was surprised that some of my variables
+    did not make it to the final equation. Minutes per game did not help the
+    model when combined with 2014-2015 ppg. The points per game ranking was
+    very similar to the 2014-2015 ppg. When I combined these two variables, the
+    model barely improved. Salary had almost no correlation with points per
+    game at all. After closely examining my data, I could see why higher
+    salaries are typically given to players who have already proven themselves
+    after about five or six years in the NBA. Furthermore, contracts are
+    renegotiated every three or four years. Even if a player has his first good
+    season, he will probably not be paid for his success for a couple years.
+    Therefore, many older players averaged lower ppg and earned higher salaries
+    while many younger players averaged higher ppg and earned a lower salary.
+    In the end, salary was not a good predictor. I was also surprised that my
+    "career regression slope" predictor did not make the final equation. The
+    statistic did add to the model's predictability. Nevertheless, it did not
+    add enough to become a part of the final model. The last variable removed
+    from the final equation was the binary All-Star variable. It hardly
+    improved the final model.
+</p>
+<p>
+    My final model included three numeric variables: 2014-2015 ppg, assists per
+    game, and highest ppg of a different player on the team. I was not
+    surprised that 2014-2015 ppg made the final model. An individual player's
+    ppg might vary quite a bit throughout his career. Nevertheless, a player's
+    ppg does not change very much one season later. This predictor was by far
+    the best variable. Nevertheless, assists per game and highest ppg of a
+    different player both added considerably to the model. I thought that the
+    more assists a player recorded, the less points he would record because he
+    passed more and shot less. (An assist is when a player passes the ball to a
+    teammate who scores.) This hypothesis was incorrect. In fact, the more
+    assists that a player records, the more points he records. I believe this
+    correlation stems from the fact that players who record more assists and
+    more points simply have the ball more often than players with lower assists
+    and lower points. Some NBA players, especially stars, are at the center of
+    every game and have the ball much more frequently than other players. I
+    think this statistic captures the "super-star" aspect of the game. In fact,
+    one more assist will probably give a player about .4 more points.
+</p>
+<p>
+    The third variable in the model is highest ppg of a different player on the
+    team. As I expected, a high scoring player will lead to lower scoring
+    teammates. While this variable alone did not predict 2015-2016 ppg very
+    well. When this variable was added to 2014-2015 ppg, the two variables
+    combined very well. The analogy I used above was that if a super-star like
+    Michael Jordan is on a team, his team mates will score less because Jordan
+    is taking every shot. A modern day example of this trend is Russell Westbrook's up tick in production after the departure of his super star teammate, Kevin Durant. In fact, one more point for the highest scorer on the
+    team will negatively detract from his teammate's scoring by about .3
+    points. I think this variable was especially effective because it captured
+    the element of team play and not just individual play.
+</p>
+<p>
+    Therefore, some of my variables were ineffective, like salary, while others
+    were so similar to 2014-2015 ppg that they were not necessary. In the end,
+    2014-2015 ppg counted for the majority of the prediction. Assists per game
+    captured the unique aspect of the game in which players who have the ball
+    more will score more. And lastly, highest ppg of a different player on the
+    team added a team element to the prediction model. This model's average
+    accuracy (RMSE) is about 2.4 ppg.
+</p>
+<p align ="center">
+<h3>
+    Appendix
+</h3>
+</p>
+<p align ="center">
+<img src="http://i.imgur.com/xRp3adM.png"
+     >
+</p>
+<p>
+    Before I display the step-wise, here is an example of the statistic "Career regression slope". I used last six years of career and took the slope as an X variable. This variable is meant to capture rising stars and older players on the decline.
+    Lebron James' negative coefficient demonstrates that he is an older player with declining scoring figures.
+
+</p>
+<p align = "center">
+    <img src ="http://i.imgur.com/pOPCKVb.png">
+</p>
+<p>
+    Step 1: Run every X along with Y in a single variable regression
+    <br>
+    <br>
+1) X is 2014-2015 ppg (highest sum of squares so t test is necessary)
+</p>
+<img src ="http://i.imgur.com/9xE40tS.png">
+<br>
+<br>
+<img src ="http://i.imgur.com/53HQETG.png">
+<p>
+    t test:<br><br>
+
+    Ho: b1 = 0; Ha: b1 ≠ 0<br><br>
+
+    t* = (b1-0)/sb1 = (.947886-0)/.1194726 = 7.933 (no reference to t table necessary because t* is high)<br><br>
+
+    We reject Ho and conclude Ha. <br><br>
+    
+    2) minutes per game as X
+
+</p>
+<img src="http://i.imgur.com/AtepCDS.png"> <br><br>
+3) career regression slope as X <br><br>
+<img src="http://i.imgur.com/BvacJfA.png"> <br> <br>
+4) highest ppg on team (other player) as X<br><br>
+<img src="http://i.imgur.com/dHONouj.png"><br><br>
+5) salary as X<br><br>
+<img src="http://i.imgur.com/gZ8zmEP.png"><br><br>
+6) Assists as X<br><br>
+<img src="http://i.imgur.com/bAScrVh.png"><br><br>
+7) 2014 ppg ranking as X<br><br>
+<img src="http://i.imgur.com/aSbl8wk.png"><br><br>
+<p align="center">
+Step 2: combine all single variables with 2014-2015 ppg
+</p>
+1) 2014-2015 ppg and minutes per game<br><br>
+<img src="http://i.imgur.com/Pz3DxZ9.png"><br><br>
+Sum of Squares similar to just 2014-2015 ppg so no F test necessary <br><br>
+REMOVE MINUTES PER GAME<br><br>
+2) 2014-2015 ppg and career regression slope<br><br>
+<img src="http://i.imgur.com/xaHyfdr.png"><br><br>
+Ho: Bcareer regression slope = 0 given B2014-2015 ppg; Ha: Bcareer regression slope ≠ 0 given B2014-2015 ppg<br><br>
+F* = [(513.855-487.8115)/(2-1)]/[345.9348/(50-1-2)] = 3.538<br><br>
+F table 90% = 2.79<br><br>
+KEEP CAREER REGRESSION SLOPE<br><br>
+3) 2014-2015 ppg and other player ppg (this sum of squares demonstrates combination effect)<br><br>
+<img src="http://i.imgur.com/OMwgrVo.png"><br><br>
+Ho: Bother player ppg = 0 given B2014-2015 ppg; Ha: Bother player ppg ≠ 0 given B2014-2015 ppg<br><br>
+F* = [(538.968-487.8115)/(2-1)]/[320.8218/(50-1-2)] = 7.494<br><br>
+F table 90% = 2.79<br><br>
+KEEP OTHER PLAYER PPG <br><br>  
+4) 2014-2015 ppg and 2015-2016 Salary<br><br>
+<img src="http://i.imgur.com/EwZHFjV.png"><br><br>
+Ho: Bsalary = 0 given B2014-2015 ppg; Ha: Bslope ≠ 0 given B2014-2015 ppg<br><br>
+F* = [(500.93362-487.8115)/(2-1)]/[358.85618/(50-1-2)] = 1.719<br><br>
+F table 90% = 2.79<br><br>
+REMOVE SALARY<br><br>
+5) 2014-2015 ppg and assists per game<br><br>
+<img src="http://i.imgur.com/IwFlJF8.png"><br><br>
+Ho: Bassists per game = 0 given B2014-2015 ppg; Ha: Bassists per game ≠ 0 given B2014-2015 ppg<br><br>
+F* = [(522.67243-487.8115)/(2-1)]/[337.11737/(50-2-1)] = 4.860<br><br>
+F table 90% = 2.79<br><br>
+KEEP ASSISTS PER GAME<br><br>
+6) 2014-2015 ppg and 2014-2015 ppg rank<br><br>
+<img src="http://i.imgur.com/6nwUk4l.png"><br><br>
+Ho: B2014-2015 ppg rank = 0 given B2014-2015 ppg; Ha: B2014-2015 ppg rank ≠ 0 given B2014-2015 ppg<br><br>
+F* = [(500.3714-487.8115)/(2-1)/[(359.4184)/(50-1-2)] = 1.642<br><br>
+F table 90% = 2.79<br><br>
+REMOVE 2014-2015 PPG RANK<br><br>
+Step 3: combine 2014-2015 ppg and other player ppg with remaining x variables<br><br>
+1) 2014-2015 ppg, other player ppg, and career regression slope<br><br>
+<img src="http://i.imgur.com/OE0X2bM.png"><br><br>
+Ho: Bcareer regression slope = 0 given B2014-2015 ppg & other player ppg; Ha: Bcareer regression slope ≠ 0 given B2014-2015 ppg & other player ppg<br><br>
+F* = [(552.93898-538.986)/(3-2)]/(306.85082)/(50-1-3)=2.094<br><br>
+F table 90% = 2.79<br><br>
+REMOVE CAREER REGRESSION SLOPE<br><br>
+2) 2014-2015 ppg, other player ppg, and assists per game (final equation)<br><br>
+<img src="http://i.imgur.com/jsKiJeG.png"><br><br>
+Ho: Bassists per game = 0 given B2014-2015 ppg & other player ppg; Ha: Bassists per game ≠ 0 given B2014-2015 ppg & other player ppg<br><br>
+F* = [(574.2062-538.986)/(3-2)]/(285.5836)/(50-1-3)] = 5.676<br><br>
+F table 90% = 2.79<br><br>
+KEEP ASSISTS PER GAME<br><br>
+Step 4: add binary variable<br><br>
+<img src="http://i.imgur.com/akuttuX.png"><br><br>
+Sum of squares shows almost no difference, F test not necessary.<br><br>
+Remove All-Star binary variable.<br><br>
+Final Equation:<br><br>
+Yhat = 6.016303 + .387621*Xassists per game - .300319*Xhighest ppg on team (other player) + .897901*X2014-2015 ppg<br><br>
+step 5: testing for error<br><br>
+1) Normal distribution of errors:<br><br>
+<img src="http://i.imgur.com/VuVyfvY.png"><br><br>
+The line is fairly straight.<br><br>
+This chart shows how many data points fall in different standard deviation zones.<br><br>
+<img src="http://i.imgur.com/oT0WoQd.png">
+<p>
+    The center has the majority of the errors. One side has 23 total data points and the other has 27 total points. The errors are not a perfect normal distribution but they are close to a normally distributed data set. 
+</p>
+2) Heteroskedasticity:<br><br>
+top half of errors standard deviation: 2.73<br>
+bottom half of errors standard deviation: 2.10<br>
+The quotient of the top half divided by the bottom half is 1.3. Because this statistic is in between .5 and 2, I can conclude that this data set does not contain heteroskedasticity.<br>
+<p>
+    3) Durbin Watson: This data set should be tested for Durbin Watson because the data points are ordered from highest ppg to lowest ppg. 
+</p>
+Ho: p = 0 if DW is greater than du we will conclude Ho<br>
+Ha: p > 0 if DW is less than dl, we will conclude Ha<br>
+DW = [(et-et-1)^2]/[et^2]<br>
+DW = 471.62/285.58 = 1.65<br>
+using 5% significance level, dl = 1.42 and du = 1.67<br><br>
+<p>
+   Therefore, the result of the DW test is inconclusive because DW falls in between these two figures. Nevertheless, the DW is very close to du and can almost be considered completely free of autocorrelation. 
+ 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

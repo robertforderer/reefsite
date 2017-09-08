@@ -1,0 +1,4755 @@
+<a href="website2.html"> Back to Home Page </a></li>
+        <div>
+    <p align="right">
+        <strong>Team Alfa</strong>
+    </p>
+    <p align="right">
+        Robert Forderer
+    </p>
+    <p align="right">
+        Eric Li
+    </p>
+    <p align="right">
+        Jacklyn Nguyen
+    </p>
+    <p align="right">
+        Joshua Tosches
+    </p>
+    <p align="center">
+        NFL Scheduling: Optimization of flying distance
+    </p>
+    <p>
+        Executive Summary
+    </p>
+    <p>
+        Our team has developed a model for deciding the NFL (National Football
+        League) game schedule for one season. We used linear programming in
+        order to formulate a solution that will reduce the cumulative miles
+        traveled by all NFL teams. To formulate the problem, we used data for
+        the distance between each team and every possible opponent in the NFL.
+        We then implemented the constraints and assumptions that affect the
+        current NFL schedule. We were then able to develop a linear program
+        using Open Solver to arrive at an optimal distance. The optimization of
+        the NFL schedule will result in lower traveling costs. In addition to
+        traveling costs, our solution has implications such as reducing fuels
+        costs and environmental impact of energy use to travel.
+    </p>
+    <p>
+        Introduction
+    </p>
+    <p>
+        Every year the NFL is confronted with a specific scheduling problem.
+        Which teams are going to play each other and when? In addition, travel
+        plans must be made in order to get teams from their hometown to the
+        opponent's stadium. One factor that the NFL does not seem to consider
+        in their formulation of this problem is the effects that all of the
+        travel and fuel consumption will have on the environment. In addition,
+        the distance traveled can also affect team’s overall strength and
+        performance due to the time spent in the air. In the 2016 season, NFL
+        teams will travel a cumulative distance totaling more than 500,000
+        miles (cbssports.com). Jet fuel costs approximately 5 dollars per
+        gallon (aviationweek) and a Boeing 747 is estimated to use 5 gallons
+        per mile (Howstuffworks.com). Therefore, the NFL’s immense traveling
+        schedule incurs large economic and environmental costs. Our group will
+        use a method called linear programming to create a more cost effective
+        and environmentally friendly schedule.
+    </p>
+    <p>
+        In addition to creating an NFL schedule that minimized the distance
+        traveled. Our group also heuristically assigned home and away games in
+        order to close the gap in traveling inequality. The current top 3 teams
+        who travel the most are Los Angeles, Oakland, Seattle. Rams accumulated
+        37,000 miles during 2016 partly because Rams moved from St. Louis to
+        Los Angeles. The Rams, Seahawks, and Raiders accumulated a total of
+        85,000 miles. West coast teams typically travel more miles than east
+        coast teams because most teams are located on the east coast. Our group
+        attempted to assign home and away games in order to create more
+        equality in terms of traveling distance among the teams. However,
+        heuristically assigning home and away games proved to be more difficult
+        than we thought, so we were unable to perform this task.
+    </p>
+    <p>
+        Problem Description
+    </p>
+    <p>
+        Linear programming is a system of formulation that contains one
+        objective determined by various decisions. These decisions are also
+        subject to constraints. The objective of our model is to create an NFL
+        schedule that minimizes the total distance traveled by all 32 teams
+        over the course of a single 17-week season. We must decide on every
+        possible matchup in every possible week. The constraints in our model
+        are the scheduling customs of the NFL.
+    </p>
+    <p>
+        In order to create a fair and competitive schedule, certain rules must
+        be applied to our plan. First, each team can only play one game per
+        week in the 17 week NFL schedule. Football is a physically demanding
+        sport. Therefore, if teams competed more than once a week, more players
+        would acquire injuries. Another measure used to reduce player injuries
+        is that every team gets one week off, called a “bye”. This means every
+        team plays a total of 16 games with one bye. Four teams will receive
+        byes in weeks 5 through 12.
+    </p>
+    <p>
+        Another set of rules that dictate the NFL schedule are related to the
+        NFL conference and division system. Figure 1 below displays the
+        breakdown of the NFL’s 32 teams and how they are divided into two 16
+        team conferences: the NFC and the AFC. These two conferences are then
+        divided into four divisions containing four teams each. Every team
+        plays every other team in its own division twice, totally six
+        inter-division games for each team. In addition, each team also plays
+        teams out of its division but in its conference six times. Finally,
+        each team plays four teams in the opposite conference. The sum of these
+        three categories is sixteen. A complete, seventeen week NFL schedule is
+        created once one bye per team is added.
+    </p>
+    <p align="center">
+        <strong>
+            <em>Figure 1: NFL Conference &amp; Division Breakdown</em>
+        </strong>
+    </p>
+    <p>
+        The last important rule in the NFL scheduling problem is the fact that
+        non-division teams cannot play each other more than once. The number of
+teams, and the number of games allows teams to        <strong><em>not</em></strong> play each other. Every season, each team
+        plays only 13 out of 32 teams. This fact leads to many possible
+        variations of the NFL schedule. Therefore, our objective is to use
+        linear programming to locate the variation that minimizes the total
+        distance traveled.
+    </p>
+    <p>
+        A key assumption of our problem is that each NFL team travels the same.
+        Therefore, one mile traveled by one team will be counted the same as
+        one mile traveled by another. Furthermore, we are only considering air
+        travel miles between each city, and excluding other travel distances
+        such as buses to the stadiums and hotel. Another assumption is that
+        each team will fly back home after each away game. In reality, teams
+        typically fly home to regroup even if they have an away game the next
+        week. In addition, we will not be considering the schedule of other
+        games or events occurring in each stadium that might cause a scheduling
+        conflict. Our last assumption is that we are only accounting for
+        domestic games. We will not be considering games played in London
+        because there are only three games played in London out of a total of
+        256 regular season games.
+    </p>
+    <p>
+        Results
+    </p>
+    <p>
+        Our problem contained more than 17,000 variables by considering every
+        possible game in every possible week. Nevertheless, robust Open Solver
+        software was able to solve the problem in approximately ten minutes.
+        The schedule resembled a normal NFL schedule, with every team playing
+        sixteen games with a bye. Furthermore, the scheduling traditions of the
+        NFL described above were also met. The software produced a schedule
+        totaling slightly more than 380,000 miles. This schedule reduces the
+        number of miles traveled by teams this season by approximately 28
+        percent. Even if three games were played in London and one game in
+        Mexico City, our model would still have a shorter distance than the
+        current schedule.
+    </p>
+    <p>
+        Conclusion
+    </p>
+    <p>
+        While the NFL's focus is not scheduling with travel distance in mind,
+        it was the sole focus of our group's report. Teams in our model travel
+        slightly more than 380,000 miles while NFL teams this year will travel
+        more than 500,000 miles. The positive benefits of a schedule with less
+        traveling include increased player performance, money savings, and
+        lessened environmental impact. Nevertheless, the schedule we produced
+        could not be used by the NFL right now. The current NFL schedule is
+        based on the fact that all thirty-two teams could not possibly play one
+        another in a sixteen game schedule. Therefore, the actual NFL
+        schedulers have a multiple-year perspective in their approach. They
+        make sure that every team plays one another every few years. If our
+        current one-year schedule was used every year, certain teams would
+        never play one another. Nevertheless, creating a multiple year schedule
+        that considers the constraint that every team must play at least once
+        every few years is possible. If our team had more time, we would have
+        created such a schedule. We also would have added two-week road trips
+        so an away team could play two away games with roughly the same travel
+        distance as one game. Although our current one-year schedule could not
+        realistically be implemented, adding those two improvements might make
+        a schedule that could actually compete with the NFL's current schedule.
+    </p>
+    <p>
+        Appendix starts next page.
+    </p>
+    <p>
+        Minimizing Distance Traveled
+    </p>
+    <p>
+        Decision Variables:
+    </p>
+    <p>
+        Mijt = Whether or not a Match up occurs between team i and team j in
+        week t where i = 1-32, j = 1-32, t = 1-17
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Teams i and j:
+    </p>
+    <p>
+        AFC
+    </p>
+    <p>
+        AFC North:
+    </p>
+    <p>
+        1. Baltimore
+    </p>
+    <p>
+        2. Cincinnati
+    </p>
+    <p>
+        3. Cleveland
+    </p>
+    <p>
+        4. Pittsburgh
+    </p>
+    <p>
+        AFC South:
+    </p>
+    <p>
+        5. Houston
+    </p>
+    <p>
+        6. Indianapolis
+    </p>
+    <p>
+        7. Jacksonville
+    </p>
+    <p>
+        8. Nashville
+    </p>
+    <p>
+        AFC East:
+    </p>
+    <p>
+        9. Buffalo
+    </p>
+    <p>
+        10. Miami
+    </p>
+    <p>
+        11. New York Jets
+    </p>
+    <p>
+        12. Boston
+    </p>
+    <p>
+        AFC West:
+    </p>
+    <p>
+        13. Denver
+    </p>
+    <p>
+        14. Kansas City
+    </p>
+    <p>
+        15. Oakland
+    </p>
+    <p>
+        16. San Diego
+    </p>
+    <p>
+        NFC
+    </p>
+    <p>
+        NFC North:
+    </p>
+    <p>
+        17. Chicago
+    </p>
+    <p>
+        18. Detroit
+    </p>
+    <p>
+        19. Green Bay
+    </p>
+    <p>
+        20. Minneapolis
+    </p>
+    <p>
+        NFC South:
+    </p>
+    <p>
+        21. Atlanta
+    </p>
+    <p>
+        22. Charlotte
+    </p>
+    <p>
+        23. New Orleans
+    </p>
+    <p>
+        24. Tampa Bay
+    </p>
+    <p>
+        NFC East:
+    </p>
+    <p>
+        25. Dallas
+    </p>
+    <p>
+        26. New York Giants
+    </p>
+    <p>
+        27. Philadelphia
+    </p>
+    <p>
+        28. Washington
+    </p>
+    <p>
+        NFC West:
+    </p>
+    <p>
+        29. Phoenix
+    </p>
+    <p>
+        30. Los Angeles
+    </p>
+    <p>
+        31. San Francisco
+    </p>
+    <p>
+        32. Seattle
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Coefficients:
+    </p>
+    <p>
+        Dijt = distance in miles between team i and team j in week t where i =
+        1-32, j = 1-32, t = 1-17
+    </p>
+    <p>
+        Note: when a team plays itself it is considered their one week off per
+        season
+    </p>
+    <p>
+        Objective Function:
+    </p>
+    <p>
+        S Dijt * Mijt = Min Z
+    </p>
+    <p>
+        Constraints:
+    </p>
+    <p>
+        1) Every team must play once per week (a team playing itself is
+        considered its week off or bye)
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        S M1j1 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j2 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j3 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j4 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j5 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j6 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j7 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j8 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j9 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j10 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j11 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j11 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j12 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j13 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j14 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j15 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j16 = 1 where j = 1-32
+    </p>
+    <p>
+        SM1j17 = 1 where j = 1-32
+    </p>
+</div>
+<br clear="all"/>
+<div>
+</div>
+<u>
+    <br clear="all"/>
+</u>
+<div>
+    <p>
+        <u>Repeat this constraint for teams 1-32</u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        2) No teams have weeks off in weeks 1-4 &amp; 13-17
+    </p>
+    <p>
+        S M11t + M22t + M33t + M44t + M55t + M66t + M77t + M88t + M99t + M1010t
+        + M1111t + M1212t + M1313t + M1414t + M1515t + M1616t + M1717t + M1818t
+        + M1919t + M2020t + M2121t + M2222t + M2323t + M2424t + M2525t + M2626t
+        + M2727t + M2828t + M2929t + M3030t + M3131t + M3232t = 0 when t = 1-4,
+        13-17
+    </p>
+    <p>
+        3) 4 teams have weeks off in 5-12
+    </p>
+    <p>
+        week 5:
+    </p>
+    <p>
+        S M115 + M225 + M335 + M445 + M555 + M665 + M775 + M885 + M995 + M10105
+        + M11115+ M12125 + M13135 + M14145 + M15155 + M16165 + M17175 + M18185
+        + M19195 + M20205 + M21215 + M22225 + M23235 + M24245 + M25255 + M26265
+        + M27275+ M28285 + M29295 + M30305 + M31315 + M32325 = 4
+    </p>
+    <p>
+        <u>Repeat this constraint for weeks 6-12.</u>
+    </p>
+    <p>
+        4) Each team has one week off per season
+    </p>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        SM11t = 1 where t = 1-17
+    </p>
+    <p>
+        <u>Repeat this constraint for all 32 teams</u>
+    </p>
+    <p>
+        5) Each team must play 12 games in the same conference
+    </p>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        SM1jt =12 where j = 2-16 and t = 1-17
+    </p>
+    <p>
+        <u>
+            Repeat this constraint for teams 2-16. (Each AFC team). Note: this
+            constraint does not include team playing itself
+        </u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        Chicago:
+    </p>
+    <p>
+        SM17jt = 12 where j = 17-32 and t = 1-17
+    </p>
+    <p>
+        <u>
+            Repeat this constraint for teams 17-32 (Each NFC team). Note: this
+            constraint does not include team playing itself
+        </u>
+    </p>
+    <p>
+        6) Each team must play 4 games in the opposite conference
+    </p>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        SM1jt = 4 where j = 17-32 and t = 1-17
+    </p>
+    <p>
+        <u>Repeat this constraint for each AFC team</u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        Chicago:
+    </p>
+    <p>
+        SM17jt = 4 where j = 1-16 and t = 1-17
+    </p>
+    <p>
+        <u>Repeat this constraint for each NFC team</u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        7) Each team must play each team in its division twice
+    </p>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        SM12t = 2 where t = 1-17
+    </p>
+    <p>
+        SM13t = 2 where t = 1-17
+    </p>
+    <p>
+        SM14t = 2 where t = 1-17
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        <u>Repeat for all 32 teams. </u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        8) Each team cannot play a team that is <u>not</u> in its division more
+        than once
+    </p>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        SM15t &lt;= 1 where t = 1-17
+    </p>
+    <p>
+        <u>Repeat for every non-division matchup</u>
+    </p>
+    <p>
+        <u></u>
+    </p>
+    <p>
+        9) Non-negativity
+    </p>
+    <p>
+        10) All variables are binary
+    </p>
+    <p>
+        Results: Total distance traveled 190,164.81*2 = 380,331.62 miles
+        (multiplied by two for return trip)
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Results: Matchups by category
+    </p>
+    <p>
+        (For matchups by week see spreadsheet)
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Baltimore:
+    </p>
+    <p>
+        Interconference:
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0" width="80">
+        <tbody>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Jacksonville
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Buffalo
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        NYJ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Boston
+                    </p>
+                    <p>
+                        Miami
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Charlotte
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        NYG
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Philedelphia
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Washington
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cleveland
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cleveland
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti:
+                    </p>
+                    <p>
+                        Interconference:
+                    </p>
+                    <p>
+                        Indianapolis:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Buffalo
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        NYJ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Boston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        KC
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        SD
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Chi
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Atlanta
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Charlotte
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Minn
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cleveland
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Cleveland
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="80" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Cleveland:
+    </p>
+    <p>
+        Interconference:
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0" width="65">
+        <tbody>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Buffalo
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NYJ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Boston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Denver
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        KC
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Oak
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Chi
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Det
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        GB
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Minn
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburg
+                    </p>
+                    <p>
+                        Pittsburg:
+                    </p>
+                    <p>
+                        Interconference:
+                    </p>
+                    <table
+                        border="0"
+                        cellspacing="0"
+                        cellpadding="0"
+                        width="65"
+                    >
+                        <tbody>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Indianapolis
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Jacksonville
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Buffalo
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        NYJ
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Boston
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        KC
+                                    </p>
+                                    <p>
+                                        Intraconferenc:
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Chi
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Det
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        GB
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Washington
+                                    </p>
+                                    <p>
+                                        Interdivision
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Baltimore
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Baltimore
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Cleveland
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Cleveland
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Cincinatti
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="65" nowrap="" valign="bottom">
+                                    <p>
+                                        Cincinatti
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Houston:
+    </p>
+    <p>
+        Interconference:
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0" width="65">
+        <tbody>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Miami
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Denver
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        KC
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Oak
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        SD
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NO
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Dallas
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Pho
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        LA
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Indianapolis:
+    </p>
+    <p>
+        Interconference:
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0" width="65">
+        <tbody>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Cincinatti
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Pitt
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Denver
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        KC
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Oak
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        SD
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Chicago
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        GB
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Minneapolis
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Dallas
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Jacksonville:
+    </p>
+    <p>
+        Interconference:
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0" width="65">
+        <tbody>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Baltimore
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Pittsburgh
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Miami
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NYJ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Boston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        SD
+                    </p>
+                    <p>
+                        Intraconference:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Atlanta
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Charlotte
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NO
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Tampa Bay
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nash
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="0" cellspacing="0" cellpadding="0" width="65">
+        <tbody>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Nashville:
+                    </p>
+                    <p>
+                        Interconference:
+                    </p>
+                    <p>
+                        Miami
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NYJ
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Denver
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        KC
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Oak
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        SD
+                    </p>
+                    <p>
+                        Intraconference
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        ATL
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        NO
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        TB
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Dallas
+                    </p>
+                    <p>
+                        Interdivision:
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Jack
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Houston
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="65" nowrap="" valign="bottom">
+                    <p>
+                        Indy
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br clear="all"/>
+<p>
+    Buffalo:
+</p>
+<p>
+    Interconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsurg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Denver
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oakland
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GreenBay
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Phi
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Miami:
+</p>
+<p>
+    Interconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Atlanta
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    New York Jets:
+</p>
+<p>
+    Interconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philedelphia
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Boston:
+</p>
+<p>
+    Interconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Denver
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philedelphia
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+                <p>
+                    Denver:
+                </p>
+                <p>
+                    Interconference:
+                </p>
+                <table border="0" cellspacing="0" cellpadding="0" width="65">
+                    <tbody>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Cleveland
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Houston
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Indy
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Nashville
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Buffalo
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Boston
+                                </p>
+                                <p>
+                                    Intraconference
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    PHO
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    LA
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    SF
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Sea
+                                </p>
+                                <p>
+                                    Interdivision:
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    KC
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    KC
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Oak
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    Oak
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    SD
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="65" nowrap="" valign="bottom">
+                                <p>
+                                    SD
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Chicago:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Indy
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philedelphia
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Kansas City:
+</p>
+<p>
+    Interconference
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Indy
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nash
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minneapolis
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Detroit:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philadelphia
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Minn
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="80">
+    <tbody>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Oakland:
+                </p>
+                <p>
+                    Interconference:
+                </p>
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Houson
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Indy
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    PhO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="80" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Green Bay:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Indy
+                </p>
+                <p>
+                    Interconference
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Minn
+</p>
+<p>
+    San Diego:
+</p>
+<p>
+    Interconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Indy
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Minneapolis:
+</p>
+<p>
+    Intraconference
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cleveland
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Indianapolis
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+                <p>
+                    Interconference
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Atlanta:
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Cincinatti
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Wash
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Dallas:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="90">
+    <tbody>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Indianapolis
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <table border="0" cellspacing="0" cellpadding="0" width="78">
+                    <tbody>
+                        <tr>
+                            <td width="78" nowrap="" valign="bottom">
+                                <table
+                                    border="0"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                    width="65"
+                                >
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Charlotte:
+                                                </p>
+                                                <p>
+                                                    Intraconference
+                                                </p>
+                                                <p>
+                                                    Baltimore
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Jacksonville
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Miami
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Cincinatti
+                                                </p>
+                                                <p>
+                                                    Interconference
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Detroit
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Minneapolis
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Chicago
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    NYG
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Phil
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    Wash
+                                                </p>
+                                                <p>
+                                                    Interdivision:
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    NO
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    NO
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    TB
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    TB
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    ATL
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                width="65"
+                                                nowrap=""
+                                                valign="bottom"
+                                            >
+                                                <p>
+                                                    ATL
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    New York Giants:
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Atlanta
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    New Orleans:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Phildelphia:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="90">
+    <tbody>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Buffalo
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="90" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Tampa Bay:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Nashville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Miami
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Jacksonville
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Washington
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Char
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Washington:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Baltimore
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Pittsburg
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYJ
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Boston
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chicago
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Detroit
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Charlotte
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Philly
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NYG
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Phoenix:
+                </p>
+                <p>
+                    Intraconference:
+                </p>
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Denver
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    ATL
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Los Angeles:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Houston
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    TB
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    San Francisco:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="82">
+    <tbody>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Atl
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="82" nowrap="" valign="bottom">
+                <p>
+                    Sea
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Seattle:
+</p>
+<p>
+    Intraconference:
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="65">
+    <tbody>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Oak
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    KC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Den
+                </p>
+                <p>
+                    Interconference:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Chi
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Det
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    GB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Minn
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    Dallas
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    NO
+                </p>
+                <p>
+                    Interdivision:
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    PHO
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    LA
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="65" nowrap="" valign="bottom">
+                <p>
+                    SF
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </body>
+</html>

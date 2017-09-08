@@ -1,0 +1,1397 @@
+<a href="website2.html"> Back to Home Page </a></li>
+        <p align="center">
+    Chemical Analysis of Red and White Wines of the Vinho Verde Region
+</p>
+        <p align="center">
+    Katie Xia, Camille Zhu, Robert Forderer
+</p>
+
+<p align="center">
+    Executive Summary:
+</p>
+<p>
+    Our team analyzed a red wine dataset consisting of 1599 observations and a
+    white wine dataset consisting of 4898 observations from the UC Irvine Data
+    Archive. All of the wines are of the "Vinho Verde" variety from a region in
+    northern Portugal called The Douro Valley. The tradition of making wine has
+    lasted for more than two thousand years in The Douro Valley. Many of the
+    Vinho Verde production techniques are family specific. This "home-grown"
+    style of wine production has created quality problems in the past. Although
+    some low-quality Vinho Verdes are still being produced today, many
+    wine-makers are using proper wine making techniques. (Cohen, BBC.com)
+    "Vinho Verde" translates to "green" or "young" wine because the
+    fermentation process is typically short. This variety of wine is moderately
+    priced between five and twenty dollars per bottle. (Singer, "7 Things you
+    need to know about Vinho Verde") Despite the wine variety's affordable
+    price, Vinho Verdes exhibit a wide variety of quality. Our group used
+    various data mining techniques to understand the Vinho Verde region and the
+    basic principles of winemaking.
+</p>
+<p align="center">
+    Introduction to X variables:
+</p>
+<p>
+    Wine experts rated the quality of the wines based on an integer scale
+    between 1 and 10. Our group analyzed two additional versions of the
+    original quality measurement. We divided both datasets into "good" and
+    "bad" groups; we also divided the two datasets into "poor", "medium", and
+    "good" groups. We also analyzed the quality measurements quantitatively.
+    The range of both of our datasets was between 3 and 8. Most of the wines in
+    both datasets had a quality rating of either 5 or 6. In fact, 44% of the
+    white wine dataset was rated as a 6. Quality is not necessarily an
+    objective measurement because two wine experts rating one wine may produce
+    different results. Nevertheless, certain qualities of wine can be
+    considered factual, especially chemical characteristics.
+</p>
+<p>
+    In addition to a quality measurement, our dataset contains 11 chemical
+    attributes for each wine. Two of these chemical attributes, residual sugar
+    and citric acid, are natural components of grapes. These chemicals can also
+    be added artificially in the wine-making process.
+</p>
+<p>
+    Once grapes are picked, winemakers combine them with yeast, a single celled
+    organism that eats the sugar and other grape components. The output of this
+    process is alcohol. Alcohol is a preservative that protects wine from
+    decaying. Our group decided to consult a wine expert in regards to
+    alcohol's role in the process of wine making. Dan Peschetti has a degree in
+    viticulture from UC Davis and five years of experience in the wine making
+    industry. He noted that alcohol is a preservative which curtails "microbial
+    growth and instability". A microbe is a single celled organism, like yeast.
+    It is important to note that yeast is one of a wide variety of microbes
+    that affect the quality of wine. Producing low amounts of alcohol is risky
+    because the wine can become increasingly polluted with waste products like
+    chlorides and volatile acidity. Volatile acidity and alcohol are
+    consistently two of the most important variables in our group's analysis.
+</p>
+<p align="center">
+    <img src="http://www.travelcostamesa.com/blog/wp-content/uploads/2016/05/wine-lab-camp.jpg"
+         style="height:300px;">
+</p>
+<p>
+    Despite alcohol's cleansing effect on wine, other chemical processes are
+    necessary to preserve wine during fermentation. These processes are
+    especially important for Vinho Verde wines because they often have a low
+    alcohol content. A skilled Vinho Verde wine maker is capable of nurturing a
+    low alcohol wine with a delicate balance of other chemical components.
+    Citric acid is a natural preservative that already exists in grapes.
+    Additional citric acid or other acids are often added to assist the
+    preservation of wine. ("About Adding Acidity or Acid to wine",
+    morewinemaking.com) These additional acids may affect the pH or the fixed
+    acidity of a wine. It is also important to note that these chemicals are
+    associated with volatile acidity. Wine makers also add various types of
+    sulfur to help preserve the wine. ("Adding sulfur to wine",
+    morethanorganic.com) While additional sulfur assists the cleansing process,
+    waste products associated with sulfur can also detriment the quality of
+    wine. Total sulfur dioxide is one of these sulfur waste products observed
+    in our dataset. Sulfates and free sulfur dioxide were chemical components
+    included in our dataset that appeared to have a positive association with
+    quality. Therefore, wine makers must make sure that the preservatives that
+    they add to wine are balanced properly so that large amounts of new waste
+    products, like total sulfur dioxide, do not accumulate. Once preservatives
+    are added, the wine ages. Vinho Verdes typically only age for six months to
+    a year.
+</p>
+<p align="center">
+    Analysis:
+</p>
+<p>
+    Our simplest and most interpretable white wine data model is a pruned
+    classification tree. The classes in this analysis are "good" and "bad"
+    wines. (A bad wine is 3,4 or 5. A good wine is a 6,7 or 8.) The pruned
+    classification tree contains three terminal nodes. If a white wine exhibits
+    a slightly higher alcohol content than the median, on average, it will be a
+    "good" wine. This finding is consistent with Peschetti's comments on
+    alcohol and wine quality. If a white wine's alcohol content is less than
+    10.85 and contains low levels of volatile acidity, on average, it is also a
+    "good" wine. (See appendix for tree, misclassification rate, and confusion
+    matrix) However, if the wine has low levels of alcohol and high volatile
+    acidity, on average, it is a "bad" wine. Low levels of alcohol combined
+    with high levels of volatile acidity resulting in low quality is a common
+    theme across our entire analysis.
+</p>
+<p align="center">
+<img src="http://i.imgur.com/DdNZnbM.png">
+</p>
+<p>
+    The red wine's pruned classification tree tells a slightly more complex
+    story. Similar to the white wine tree, the red wine tree's first split
+    occurs near alcohol's median at 10.53. One terminal node demonstrates that
+    on average, wines with higher alcohol content rate higher on quality. The
+    wines with alcohol contents less than the median demonstrated four separate
+    terminal nodes. The first split of the low alcohol portion of the red wine
+    tree regards sulfates. If a red wine does not have a certain level of
+    sulfates, on average, it will be a "bad" wine. Sulfates are a chemical that
+    helps preserve wines. Therefore, if a red wine does not have enough alcohol
+    as a preservative, it needs to have something like sulfate as a cleaning
+    agent. The second split of the low alcohol red wines demonstrates that
+    having too much of a sulfur waste product, total sulfur dioxide, can still
+    lead to a "bad" wine. Even after passing the two qualifications of high
+    sulfates and low total sulfur dioxide, a red wine must demonstrate a low
+    level of volatile acidity to be considered a "good" wine with low alcohol
+    content. Therefore, the only terminal node resulting in good red wine at a
+    low alcohol content must pass three chemical tests: sulfates, total sulfur
+    dioxide, and volatile acidity. Since Vinho Verde wines are known for their
+    low alcohol content, wine makers specializing in these "refreshing" wines
+    must play close attention to various chemical variables.
+</p>
+<p align="center">
+    <img src="http://i.imgur.com/DNMuw3p.png">
+</p>
+<p>
+    The next step in our analysis involved using different methods to
+    categorize wines into "good" and "bad" classes. LDA and Logistic Regression
+    produced similar results. Alcohol, volatile acidity, sulfates, and total
+    sulfur dioxide played important roles in our second phase of red wine
+    analysis as well as in the pruned classification tree. White wine, on the
+    other hand, exhibited a slightly more complicated story. Density and
+    Residual sugar were significant in these tests. Since the Vinho Verde
+    variety is known for lighter wines, wines with lower densities tend to have
+    higher quality. White wines from this region are expected to be light and
+    simple compared to other, more complex varieties of white wines across the
+    world. ("Vinho Verde 101", winesofvinhoverde.com) Another significant
+    variable that our group found in our second phase of analysis was residual
+    sugar. Some Vinho Verde wine growers allow their grapes to climb tall poles
+    while other wine growers train their grapes to stay closer to the ground.
+    (Cohen, BBC.com) This practice mimics a grape's natural habitat more than a
+    traditional vineyard. Nevertheless, the practice of growing grapes high
+    above the ground results in high yields of grapes with low sugar and high
+    acidity. ("struggling vines produce better wines", wineorak.com) The large
+    number of grapes may be cheaper for making wine; however, the quality
+    suffers. This grape growing practice is one of the Vinho Verde's ancient
+    traditions that is slowly dying away because of quality concerns.
+</p>
+<p align="center">
+    <img src="http://www.sobrevinho.net/images/categorias/paises/portugal/vinho-verde-vindima.jpg"
+         style="height:400px;width:800px;">
+</p>
+<p>
+    The models in our first two phases of analysis demonstrate that modern
+    techniques such as properly adding sulfur and correct grape growing
+    practices can distinguish a "good" wine from a "bad" wine. Nevertheless,
+    the question of what separates an "average" wine from a "good" or "bad"
+    wine is much more complex. Our group used simple models like LDA, to try to
+    analyze this question. Nevertheless, our group was forced to use between
+    just three and five variables in this analysis. When we added some of the
+    more nuanced variables, the accuracy of the model declined. Even our best
+    LDA model had trouble distinguishing between three classes of wine.
+</p>
+<p>
+    Despite these troubles, our group used random forest and quantitative
+    boosting to sort our data more precisely. Quantitative boosting and random
+    forest both produced much lower results than multiple regression. Similar
+    to LDA, multiple regression is optimized when some variables are tossed out
+    of the analysis. Random forest and boosting, on the other hand, used every
+    single one of our eleven chemical variables in both datasets. The
+    importance reports of both datasets demonstrate that the variables used in
+    previous methods were still very important, like alcohol and volatile
+    acidity. Nevertheless, variables we did not expect to be important were
+    often half as important as alcohol. Therefore, random forest and boosting
+    prove that all the variables are useful in predicting the quality of wine.
+    (See appendix for results.) Despite the added predictability of all eleven
+    variables, the interpretability of the results becomes much more difficult.
+    However, we do know that using every variable is useful in distinguishing
+    the difference between "average" wines and "poor" and "good" wines. Part of
+    the random forest method is replicating the dataset many times and using
+    many different trees as opposed to just one. These different variations
+    tell the many different "stories" of wine quality. Each individual tree in
+    our random forests are not as accurate as the most precise pruned tree.
+    Nevertheless, the combination of many of these imperfect trees combine to
+    tell a more complex and accurate story.
+</p>
+<p>
+    Below are two confusion matrixes from LDA and Random Forest showing
+    misclassification rate. The numbers starting in the upper left corner
+    running to the lower right corner represent accurate predictions while the
+    remaining numbers represent inaccurate predictions. Note that Random Forest
+    performs better than LDA in all 9 categories.
+</p>
+<p align="center">
+<img src="http://i.imgur.com/u2B1qXW.png">
+</p>
+<p>
+    Therefore, our more interpretive models give a clear picture of Vinho Verde
+    specific characteristics as well as wine making basics, like alcohol's
+    effect as a preservative. Our more complex predictive models demonstrate
+    that the difference between making an "average" wine and a "good" wine is a
+    balance of many different variables. The actual story behind why an expert
+    assigns a 6 instead of a 7 is much more complex than all eleven of our x
+    variables. Nevertheless, learning from the perspective of a data analyst is
+    a good way to understand wine. Reading more about wine and perhaps
+    analyzing wine data from different regions of the world could potentially
+    add to our group's wine expertise.
+</p>
+ <li><a href="newjsp11.jsp"> Back to Home Page </a></li>
+<p align="center">
+    Works Cited:
+</p>
+<p>
+"About Acidity and Adding Acid to Must/Wine."    <em>About Acidity and Adding Acid to Must/Wine | MoreWine</em>. N.p., 5
+    Aug. 2012. Web. 11 May 2017.
+</p>
+<p>
+    "Adding Sulphur to Wine." <em>Morethanorganic.com</em>. N.p., n.d. Web. 11
+    May 2017.
+</p>
+<p>
+    Cohen, Brad. "BBC - Travel - Portugal's Anti-port." <em>BBC News</em>. BBC,
+    9 July 2014. Web. 11 May 2017.
+</p>
+<p>
+    "Meet Vinho Verde." <em>Vinho Verde</em>. Wines of Portugal, n.d. Web. 11
+    May 2017.
+</p>
+<p>
+Singer, Rachel. "7 Things You Need To Know About Vinho Verde."    <em>VinePair</em>. N.p., 27 May 2016. Web. 11 May 2017.
+</p>
+<p>
+    "Struggling Vines Produce Better Wines." <em>Struggling Vines</em>.
+    Wineanorak, n.d. Web. 11 May 2017.
+</p>
+<p align="center">
+    Appendix:
+</p>
+<p>
+    Creating classification variables:
+</p>
+<p>
+    code:
+</p>
+<p>
+    ### Red wine binary classification variable (similar for white wine)
+</p>
+<p>
+    quality01 = rep(0, length(wineData$quality))
+</p>
+<p>
+    quality01[wineData$quality&gt;median(wineData$quality)-1] = 1
+</p>
+<p>
+    wine = data.frame(wineData,quality01)
+</p>
+<p>
+    output: "quality is divided into '0' for bad wine and '1' for good wine
+</p>
+<p>
+    ##### Red wine "poor", "medium" and "good" classification variables
+    (similar for white wine)
+</p>
+<p>
+    attach(wineData)
+</p>
+<p>
+    qualityR = rep(0,1599)
+</p>
+<p>
+    loop5 = 1:1599
+</p>
+<p>
+    for(z in loop5){
+</p>
+<p>
+    if(wineData$quality[z]&lt;6){
+</p>
+<p>
+    qualityR[z] = "poor"
+</p>
+<p>
+    } else if (wineData$quality[z]&lt;7){
+</p>
+<p>
+    qualityR[z] = "medium"
+</p>
+<p>
+    } else {
+</p>
+<p>
+    qualityR[z] = "good"
+</p>
+<p>
+    }
+</p>
+<p>
+    }
+</p>
+<p>
+    wine = data.frame(wine,qualityR)
+</p>
+<p>
+    output: three categories are created for quality in the red wine dataset
+</p>
+<p>
+    ### Red Wine "good" and "bad" variables (similar for white wine)
+</p>
+<p>
+    qualityR1 = rep(0,1599)
+</p>
+<p>
+    loop7 = 1:1599
+</p>
+<p>
+    for(w in loop7){
+</p>
+<p>
+    if(wine$quality01[w]==1){
+</p>
+<p>
+    qualityR1[w] = "good"
+</p>
+<p>
+    } else {
+</p>
+<p>
+    qualityR1[w] = "poor"
+</p>
+<p>
+    }
+</p>
+<p>
+    }
+</p>
+<p>
+    output: two categories are created for quality in the red wine dataset
+</p>
+<p>
+    ##### note: both datasets were divided into five random divisions. train1-5
+    is white wine's training data. test1-5 is white wine's corresponding test
+    data. trainR1-5 is red wine's training data. testR1-5 is red wine's
+    corresponding test data.
+</p>
+<p>
+    ##### Red wine pruned tree (similar for white, output for both trees below)
+</p>
+<p>
+    #Red Tree
+</p>
+<p>
+    treeRed =
+    tree(qualityR1~alcohol+sulphates+volatile.acidity+fixed.acidity+citric.acid+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide,data=trainR3)
+</p>
+<p>
+    plot(treeRed)
+</p>
+<p>
+    text(treeRed,pretty=0)
+</p>
+<p>
+    ## Red Pruned Tree
+</p>
+<p>
+    cv.RedPrune = cv.tree(treeRed,FUN = prune.misclass)
+</p>
+<p>
+    plot(cv.RedPrune$size,cv.RedPrune$dev)
+</p>
+<p>
+    model.RedPrune = prune.misclass(treeRed,best=5)
+</p>
+<p>
+    plot(model.RedPrune)
+</p>
+<p>
+    text(model.RedPrune)
+</p>
+<p>
+    treeRedPredict.pruned = predict(model.RedPrune,testR3,type="class")
+</p>
+<p>
+    mean(treeRedPredict.pruned != testR3$qualityR1)
+</p>
+<p>
+    table(treeRedPredict.pruned,testR3$qualityR1)
+</p>
+<p>
+    output: (red)
+</p>
+<p>
+    <img
+        width="463"
+        height="204"
+        src="http://i.imgur.com/DNMuw3p.png"
+    />
+</p>
+<p>
+    &gt; mean(treeRedPredict.pruned != testR3$qualityR1)
+</p>
+<p>
+    [1] 0.24375
+</p>
+<p>
+    &gt; table(treeRedPredict.pruned,testR3$qualityR1)
+</p>
+<p>
+    treeRedPredict.pruned good poor
+</p>
+<p>
+    good 154 47
+</p>
+<p>
+    poor 31 88
+</p>
+<p>
+    &gt;
+</p>
+<p>
+    output: (white)
+</p>
+<p>
+    <img
+        width="247"
+        height="121"
+        src="http://i.imgur.com/DdNZnbM.png"
+    />
+</p>
+<p>
+    &gt; mean(treeWhitePredict.pruned != test3$qualityW1)
+</p>
+<p>
+    [1] 0.277551
+</p>
+<p>
+    &gt; table(treeWhitePredict.pruned,test3$qualityW1)
+</p>
+<p>
+    treeWhitePredict.pruned good poor
+</p>
+<p>
+    good 508 131
+</p>
+<p>
+    poor 141 200
+</p>
+<p>
+    Red Wine Logistic Regression:
+</p>
+<p>
+    cv.error76 = rep(0,10)
+</p>
+<p>
+    loops = 1:10
+</p>
+<p>
+    for(f in loops){
+</p>
+<p>
+    glm.red = glm(quality01~alcohol + volatile.acidity + total.sulfur.dioxide +
+    sulphates,data=wine,family=binomial)
+</p>
+<p>
+    cv.error76[f] = cv.glm(wine,glm.red,K=10)$delta[1]
+</p>
+<p>
+    glm.wineTestR = predict(glm.red, newdata = wine, type = "response")
+</p>
+<p>
+    glm.wineTestR = ifelse(glm.wineTestR &gt; .5, "1", "0")
+</p>
+<p>
+    }
+</p>
+<p>
+    summary(glm.red)
+</p>
+<p>
+    table(glm.wineTestR,wine$quality01)
+</p>
+<p>
+    output:
+</p>
+<p>
+    Deviance Residuals:
+</p>
+<p>
+    Min 1Q Median 3Q Max
+</p>
+<p>
+    -3.1639 -0.8684 0.3076 0.8619 2.3291
+</p>
+<p>
+    Coefficients:
+</p>
+<p>
+    Estimate Std. Error z value Pr(&gt;|z|)
+</p>
+<p>
+    (Intercept) -8.585151 0.795292 -10.795 &lt; 2e-16 ***
+</p>
+<p>
+    alcohol 0.927420 0.069268 13.389 &lt; 2e-16 ***
+</p>
+<p>
+    volatile.acidity -3.094446 0.366315 -8.448 &lt; 2e-16 ***
+</p>
+<p>
+    total.sulfur.dioxide -0.011970 0.001924 -6.222 4.92e-10 ***
+</p>
+<p>
+    sulphates 2.058340 0.365951 5.625 1.86e-08 ***
+</p>
+<p>
+    ---
+</p>
+<p>
+    Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</p>
+<p>
+    &gt; table(glm.wineTestR,wine$quality01)
+</p>
+<p>
+    <u>Confusion Matrix Red</u>
+</p>
+<p>
+    0 1
+</p>
+<p>
+    0 548 215
+</p>
+<p>
+    1 196 640
+</p>
+<p>
+    ########White Wine Logistic Regression:
+</p>
+<p>
+    cv.error75 = rep(0,10)
+</p>
+<p>
+    loop = 1:10
+</p>
+<p>
+    for(e in loop){
+</p>
+<p>
+    glm.white = glm(quality02 ~ alcohol + density + volatile.acidity +
+    residual.sugar, data=wineW,family=binomial)
+</p>
+<p>
+    cv.error75[e] = cv.glm(wineW,glm.white,K=10)$delta[1]
+</p>
+<p>
+    glm.wineTestW = predict(glm.white, newdata = wineW, type = "response")
+</p>
+<p>
+    glm.wineTestW = ifelse(glm.wineTestW &gt; .6, "1", "0")
+</p>
+<p>
+    }
+</p>
+<p>
+    summary(glm.white)
+</p>
+<p>
+    table(glm.wineTestW,wineW$quality02)
+</p>
+<p>
+    ###### output:
+</p>
+<p>
+    Deviance Residuals:
+</p>
+<p>
+    Min 1Q Median 3Q Max
+</p>
+<p>
+    -3.1642 -0.9317 0.4507 0.8168 2.5184
+</p>
+<p>
+    Coefficients:
+</p>
+<p>
+    Estimate Std. Error z value Pr(&gt;|z|)
+</p>
+<p>
+    (Intercept) 136.23193 38.16731 3.569 0.000358 ***
+</p>
+<p>
+    alcohol 0.88225 0.05987 14.736 &lt; 2e-16 ***
+</p>
+<p>
+    density -144.38654 38.01208 -3.798 0.000146 ***
+</p>
+<p>
+    volatile.acidity -6.72090 0.39068 -17.203 &lt; 2e-16 ***
+</p>
+<p>
+    residual.sugar 0.12453 0.01558 7.992 1.33e-15 ***
+</p>
+<p>
+    ---
+</p>
+<p>
+    Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</p>
+<p>
+    Null deviance: 6245.4 on 4897 degrees of freedom
+</p>
+<p>
+    Residual deviance: 4994.6 on 4893 degrees of freedom
+</p>
+<p>
+    &gt; table(glm.wineTestW,wineW$quality02)
+</p>
+<p>
+    <u>confusion matrix</u>
+</p>
+<p>
+    0 1
+</p>
+<p>
+    0 1078 728
+</p>
+<p>
+    1 562 2530
+</p>
+<p>
+    &gt;
+</p>
+<p>
+    #### Note, LDA and Random Forest are trained using the first test set, then
+    used for prediction on the remaining four test sets. The confusion matrix
+    is a combination of the four test sets.
+</p>
+<p>
+    ##### Best Red Wine LDA:
+</p>
+<p>
+    code:
+</p>
+<p>
+    redWineLda1 =
+    lda(qualityR~alcohol+volatile.acidity+free.sulfur.dioxide,data=trainR1)
+</p>
+<p>
+    redWinePredict1 = predict(redWineLda1,newdata = testR1)
+</p>
+<p>
+    table(redWinePredict1$class,testR1$qualityR)
+</p>
+<p>
+    mean(redWinePredict1$class==testR1$qualityR)
+</p>
+<p>
+    ########LDAConfusion matrix of four remaining test sets: (Red)
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="147">
+    <tbody>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    61
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    60
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    12
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    91
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    192
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    106
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    15
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    213
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    379
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    #### Best white wine LDA:
+</p>
+<p>
+    whiteWineLda1 =
+    lda(qualityW~volatile.acidity+alcohol+residual.sugar,data=train1)
+</p>
+<p>
+    #######LDAConfusion matrix of four remaining test sets: (White)
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="151">
+    <tbody>
+        <tr>
+            <td width="45" nowrap="" valign="bottom">
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="45" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="30" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    306
+                </p>
+            </td>
+            <td width="45" nowrap="" valign="bottom">
+                <p align="right">
+                    272
+                </p>
+            </td>
+            <td width="30" nowrap="" valign="bottom">
+                <p align="right">
+                    23
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    498
+                </p>
+            </td>
+            <td width="45" nowrap="" valign="bottom">
+                <p align="right">
+                    1138
+                </p>
+            </td>
+            <td width="30" nowrap="" valign="bottom">
+                <p align="right">
+                    548
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    34
+                </p>
+            </td>
+            <td width="45" nowrap="" valign="bottom">
+                <p align="right">
+                    360
+                </p>
+            </td>
+            <td width="30" nowrap="" valign="bottom">
+                <p align="right">
+                    739
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    ##### Loop used to tune mtry for Random Forest in Red Wine first training
+    set (similar for white)
+</p>
+<p>
+    MSE.Rf=rep(0,11)
+</p>
+<p>
+    for(d in 1:11){
+</p>
+<p>
+    rf.data.red5 =
+    randomForest(qualityR~citric.acid+fixed.acidity+volatile.acidity+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide+density+pH+sulphates+alcohol,data
+    = trainR5,mtry=d,importance = TRUE,votes=TRUE)
+</p>
+<p>
+    predict.rf.C.red5 = predict(rf.data.red5,newdata = testR5)
+</p>
+<p>
+    MSE.Rf[d] = mean(predict.rf.C.red5!=testR5$qualityR)
+</p>
+<p>
+    }
+</p>
+<p>
+    MTRY = c(1:11)
+</p>
+<p>
+    plot(MTRY,MSE.Rf,type="b",col="red")
+</p>
+<p>
+    #####output:
+</p>
+<p>
+    <img
+        width="220"
+        height="124"
+        src="http://i.imgur.com/lToGRBj.png"
+    />
+</p>
+<p>
+    Example of red wine RF testing, used for four datasets (Similar to White)
+</p>
+<p>
+    rf.data.white =
+    randomForest(qualityW~citric.acid+fixed.acidity+volatile.acidity+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide+density+pH+sulphates+alcohol,data
+    = train1,mtry=9,importance = TRUE,votes=TRUE)
+</p>
+<p>
+    predict.rf = predict(rf.data.white,newdata = test1)
+</p>
+<p>
+    table(predict.rf,test1$qualityW)
+</p>
+<p>
+    importance(rf.data.white)
+</p>
+<p>
+    ####### output: RF confusion matrix for four test sets (Red) (better than
+    LDA with all 9 numbers)
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="147">
+    <tbody>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    103
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    41
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    5
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    60
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    342
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    113
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    9
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    128
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    478
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    ####### RF importance report: (Red)
+</p>
+<p>
+    MeanDecreaseGini
+</p>
+<p>
+    citric.acid 48.84696
+</p>
+<p>
+    fixed.acidity 48.05661
+</p>
+<p>
+    volatile.acidity 84.50907
+</p>
+<p>
+    residual.sugar 49.58225
+</p>
+<p>
+    chlorides 62.94861
+</p>
+<p>
+    free.sulfur.dioxide 50.02571
+</p>
+<p>
+    total.sulfur.dioxide 82.68340
+</p>
+<p>
+    density 55.95609
+</p>
+<p>
+    pH 55.05683
+</p>
+<p>
+    sulphates 90.75076
+</p>
+<p>
+    alcohol 145.42105
+</p>
+<p>
+    ####### output: RF confusion matrix for four test sets (White)
+</p>
+<table border="0" cellspacing="0" cellpadding="0" width="147">
+    <tbody>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    good
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    532
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    155
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    14
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    medium
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    285
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    1351
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    329
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="44" nowrap="" valign="bottom">
+                <p>
+                    poor
+                </p>
+            </td>
+            <td width="31" nowrap="" valign="bottom">
+                <p align="right">
+                    21
+                </p>
+            </td>
+            <td width="44" nowrap="" valign="bottom">
+                <p align="right">
+                    264
+                </p>
+            </td>
+            <td width="29" nowrap="" valign="bottom">
+                <p align="right">
+                    967
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    ####### RF importance report (White)
+</p>
+<p>
+    MeanDecreaseGini
+</p>
+<p>
+    citric.acid 192.7203
+</p>
+<p>
+    fixed.acidity 179.7146
+</p>
+<p>
+    volatile.acidity 260.5166
+</p>
+<p>
+    residual.sugar 217.5076
+</p>
+<p>
+    chlorides 209.7003
+</p>
+<p>
+    free.sulfur.dioxide 235.8693
+</p>
+<p>
+    total.sulfur.dioxide 217.5007
+</p>
+<p>
+    density 258.4509
+</p>
+<p>
+    pH 209.6606
+</p>
+<p>
+    sulphates 191.8677
+</p>
+<p>
+    alcohol 324.7759
+</p>
+<p>
+    ####### Multiple Regression Red, similar to white
+</p>
+<p>
+    multipleRegression.redWine=lm(quality~volatile.acidity+chlorides+total.sulfur.dioxide+pH+sulphates+alcohol,data=trainR1)
+</p>
+<p>
+    multipleRegression.redWine.Predict =
+    predict(multipleRegression.redWine,newdata=testR1)
+</p>
+<p>
+    MRerror= mean((multipleRegression.redWine.Predict-testR1$quality)^2)
+</p>
+<p>
+    summary(multipleRegression.redWine)
+</p>
+<p>
+    ######Red Multiple Regression output:
+</p>
+<p>
+    &gt; MRerror
+</p>
+<p>
+    [1] 0.4351052
+</p>
+<p>
+    Residuals:
+</p>
+<p>
+    Min 1Q Median 3Q Max
+</p>
+<p>
+    -2.5939 -0.3694 -0.0539 0.4633 2.0124
+</p>
+<p>
+    Coefficients:
+</p>
+<p>
+    Estimate Std. Error t value Pr(&gt;|t|)
+</p>
+<p>
+    (Intercept) 4.3786492 0.4397388 9.957 &lt; 2e-16 ***
+</p>
+<p>
+    volatile.acidity -1.0612642 0.1134933 -9.351 &lt; 2e-16 ***
+</p>
+<p>
+    chlorides -2.0369002 0.4379367 -4.651 3.65e-06 ***
+</p>
+<p>
+    total.sulfur.dioxide -0.0029457 0.0005696 -5.172 2.69e-07 ***
+</p>
+<p>
+    pH -0.4132957 0.1285468 -3.215 0.00134 **
+</p>
+<p>
+    sulphates 0.8254249 0.1210084 6.821 1.39e-11 ***
+</p>
+<p>
+    alcohol 0.2834375 0.0188398 15.045 &lt; 2e-16 ***
+</p>
+<p>
+    #####White Multiple Regression output:
+</p>
+<p>
+    &gt; MRerror
+</p>
+<p>
+    [1] 0.5480821
+</p>
+<p>
+    Residuals:
+</p>
+<p>
+    Min 1Q Median 3Q Max
+</p>
+<p>
+    -3.5057 -0.4964 -0.0399 0.4708 3.1132
+</p>
+<p>
+    Coefficients:
+</p>
+<p>
+    Estimate Std. Error t value Pr(&gt;|t|)
+</p>
+<p>
+    (Intercept) 1.431e+02 1.967e+01 7.274 4.19e-13 ***
+</p>
+<p>
+    fixed.acidity 6.851e-02 2.272e-02 3.015 0.00258 **
+</p>
+<p>
+    volatile.acidity -1.945e+00 1.228e-01 -15.838 &lt; 2e-16 ***
+</p>
+<p>
+    residual.sugar 7.869e-02 8.007e-03 9.828 &lt; 2e-16 ***
+</p>
+<p>
+    free.sulfur.dioxide 4.199e-03 7.742e-04 5.424 6.18e-08 ***
+</p>
+<p>
+    density -1.434e+02 1.993e+01 -7.192 7.63e-13 ***
+</p>
+<p>
+    pH 7.208e-01 1.149e-01 6.274 3.91e-10 ***
+</p>
+<p>
+    sulphates 5.412e-01 1.108e-01 4.883 1.09e-06 ***
+</p>
+<p>
+    alcohol 2.074e-01 2.626e-02 7.898 3.65e-15 ***
+</p>
+<p>
+    ######## Quantitative RF White (Similar for Red)
+</p>
+<p>
+    rf.data.white =
+    randomForest(quality~citric.acid+fixed.acidity+volatile.acidity+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide+density+pH+sulphates+alcohol,data
+    = trainR3,mtry=d,importance = TRUE)
+</p>
+<p>
+    predict.rf = predict(rf.data.white,newdata = testR3)
+</p>
+<p>
+    MSE.Rf = mean((predict.rf-testR3$quality)^2)
+</p>
+<p>
+    ####### mean of 4 test results (White)
+</p>
+<p>
+    0.3653835
+</p>
+<p>
+    ###### mean of 4 test results (Red)
+</p>
+<p>
+    0.32473275
+</p>
+<p>
+    ########### Loop used to tune Boosting Red (similar to White)
+</p>
+<p>
+    lambdaR = c(.00001,.0001,.001,.01,.1,.15,.2)
+</p>
+<p>
+    depthR = c(1,2,3,4,5,6,7,8,9,10,11)
+</p>
+<p>
+    treeSizeR =
+    c(50,100,500,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000)
+</p>
+<p>
+    counter = 1
+</p>
+<p>
+    MSE.boost.Lambda.redWine = rep(0,7)
+</p>
+<p>
+    for(d in lambdaR){
+</p>
+<p>
+    boost.redWine=gbm(quality~citric.acid+fixed.acidity+volatile.acidity+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide+density+pH+sulphates+alcohol,data=trainR1,distribution="gaussian",n.trees=4000,interaction.depth=9,shrinkage=d)
+</p>
+<p>
+    MSE.boost.Lambda.redWine.Predict =
+    predict(boost.redWine,newdata=testR1,n.trees=4000)
+</p>
+<p>
+    MSE.boost.Lambda.redWine[counter] =
+    mean((MSE.boost.Lambda.redWine.Predict-testR1$quality)^2)
+</p>
+<p>
+    counter = counter + 1
+</p>
+<p>
+    }
+</p>
+<p>
+    ###### Tuned Red wine boosting model
+</p>
+<p>
+    boost.redWine=gbm(quality~citric.acid+fixed.acidity+volatile.acidity+residual.sugar+chlorides+free.sulfur.dioxide+total.sulfur.dioxide+density+pH+sulphates+alcohol,data=trainR1,distribution="gaussian",n.trees=4000,interaction.depth=30,shrinkage=.01)
+</p>
+<p>
+    MSE.boost.Lambda.redWine.Predict =
+    predict(boost.redWine,newdata=testR1,n.trees=4000)
+</p>
+<p>
+    MSE.boost.Lambda.redWine =
+    mean((MSE.boost.Lambda.redWine.Predict-testR1$quality)^2)
+</p>
+<p>
+    #### MSE of tuned red boosting model:
+</p>
+<p>
+    .399144
+</p>
+<p>
+    ###### MSE of tuned White wine boosting model
+</p>
+<p>
+    0.3587856
+</p>
+ <li><a href="newjsp11.jsp"> Back to Home Page </a></li>
+    </body>
+</html>
