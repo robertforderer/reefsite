@@ -1,3 +1,37 @@
-carSeats
+<p text-align="center">
+Introduction
+</p>
+<br>
+<br>
+<p>
+I found this geographic car seat dataset in R's ISLR package. It contains 400 different geographic regions with variables such as "advertising", "price", "population", and "sales". The goal of the decision-maker using this data would be to maximize "sales" using her understanding of variables like "price" and "advertising". My role as an analyst is to make interpretations, predictions, and recommendations to assist this hypothetical manager.
+</p>
+<br>
+<br>
+<p text-align="center">
+Variable Overview
+</p>
+<p>
+As stated above, the goal of the decision-maker is to maximize "sales". Therefore, my interpretation of other variables is typically in-reference to "sales". The units for "sales" is in thousands of units sold. (The number 5 is more intuitively understood than 5,000) The average number of sales is 7.5, the standard deviation is 2.8, the maximum is 16, and the minimum is 0. (Surprisingly, only one geographic region exhibited zero sales.) The boxplot below demonstrates that most of the observations are clustered around the median while the first quartile extends to 0 and the fourth quartile extends up to approximately 15.
 
-geographic car seat data
+</p>
+<br>
+<br>
+<img src="https://i.imgur.com/Tx1S5Do.png">
+<br>
+<br>
+<p>
+Before analyzing the dataset, I thought that the "population" statistic would be quite significant. One might conjecture that a large population would exhibit large sales while a smaller population would exhibit less sales. Nevertheless, the following pivot table demonstrates that the "population" statistic hardly impacts sales. (I divided "population" into a categorical variable based on quartile using a nested if function in excel.)
+
+</p>
+<br>
+<br>
+<img src="https://i.imgur.com/PRc1wgh.png">
+<br>
+<br>
+<p>
+While "population" was not significant, "age" does appear to be significant. This variable is the average age of the local population. The pivot table below demonstrates that younger populations tend to produce more sales than younger populations. One might infer that younger populations have younger children who still require car seats as opposed to older populations who probably have older children.
+</p>
+<br>
+<br>
+<img src="https://i.imgur.com/Duw7iWH.png">
