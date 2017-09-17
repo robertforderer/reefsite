@@ -1,38 +1,813 @@
 <a href="index.html"> Back to Home Page </a></li>
-<p text-align="center">
-Introduction
-</p>
-<br>
-<br>
-<p>
-I found this geographic car seat dataset in R's ISLR package. It contains 400 different geographic regions with variables such as "advertising", "price", "population", and "sales". The goal of the decision-maker using this data would be to maximize "sales" using her understanding of variables like "price" and "advertising". My role as an analyst is to make interpretations, predictions, and recommendations to assist this hypothetical manager.
-</p>
-<br>
-<br>
-<p text-align="center">
-Variable Overview
+<p align="center">
+    Introduction
 </p>
 <p>
-As stated above, the goal of the decision-maker is to maximize "sales". Therefore, my interpretation of other variables is typically in-reference to "sales". The units for "sales" is in thousands of units sold. (The number 5 is more intuitively understood than 5,000) The average number of sales is 7.5, the standard deviation is 2.8, the maximum is 16, and the minimum is 0. (Surprisingly, only one geographic region exhibited zero sales.) The boxplot below demonstrates that most of the observations are clustered around the median while the first quartile extends to 0 and the fourth quartile extends up to approximately 15.
+    I found a geographic car seat dataset in R's ISLR package. It contains 400
+    different geographic regions with variables such as "advertising", "price",
+    "population", and "sales". The goal of the decision-maker using this data
+    would be to maximize "sales" using her understanding of variables like
+    "price" and "advertising". My role as an analyst would be to make
+    interpretations, predictions, and recommendations to assist this manager.
+</p>
+<p align="center">
+    Variable Overview
+</p>
+<p>
+    As stated above, the goal of the decision-maker is to maximize "sales".
+    Therefore, my interpretation of other variables is typically in-reference
+    to "sales". The units for "sales" is in thousands of units sold. (For
+    example, 5 units sold means 5000 units sold.)
+</p>
+<p>
+    A boxplot is a good way to visualize the variable "sales". In this box
+    plot, the 400 observations are divided into four groups, called quartiles,
+    based on "sales". Therefore, 100 observations exhibited sales in each
+    region on the graph, two are "boxes" and two are "whiskers". The boxes are
+    significantly smaller than the whiskers because most of the observations
+    are clustered around the median of 7.49, while more extreme values like 0
+    and 15 contain less observations. This bell curve pattern is so common in
+    datasets that it is referred to as a "normal distribution". The two dots to
+    the right of the fourth quartile are so far away from the median that they
+    are considered "outliers".
+</p>
+<p align="center">
+<img src="https://i.imgur.com/2wT8vVA.png" style="width:33%">
+</p>
+<p>
+    My dataset includes 10 other variables to describe "sales". Six of these
+    variables are demographic: "Population", "Education", "Age", "Urban",
+    "Income" and "US". Four of the variables relate more to business: "Price",
+    "Competition", "Shelf Lock", and "Advertising".
+</p>
+<p>
+    "Population" describes the number of people in each geographic region. One
+    might hypothesize that areas with higher populations will demonstrate
+    higher sales. (We will test this hypothesis in the "analysis" section.)
+</p>
+<p>
+    "Education" is the average level of education in the region in years. It is
+    difficult to say whether this variable will affect "sales" because people
+    of all education levels probably use car seats for their children.
+</p>
+<p>
+    "Age" is the average age in a region. One might expect that this variable
+    could be helpful in locating areas in which young parents with children
+    live.
+</p>
+<p>
+    "Income" is the average income level in each region in thousands of
+    dollars.
+</p>
+<p>
+    "US" describes whether or not a region is located in the US. It is
+    difficult to know what the effect of this variable will be. Consumers
+    located outside the US may behave differently than Americans.
+</p>
+<p>
+    "Urban" describes whether a region is considered to be urban or rural. A
+    young couple might live in the city and move to a rural area after they
+    have children. Rural areas are also more dependent on cars while urban
+    populations have the option of using public transportation. Therefore, one
+    might expect that rural populations might demand more car seats than urban
+    ones. (We will test this hypothesis in the "Analysis" section.)
+</p>
+<p>
+    "Shelf Lock" describes the quality of a car seat. The Shelf Lock is the
+    apparatus that attaches to the seat. In a powerful collision, a good shelf
+    lock will remain locked while a bad one may break. In this dataset, this
+    variable is categorized as either "Bad", "Medium", or "Good". One might
+    expect that better Car Seats will sell more.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/i8nSD5P.png" style="width:50%" style="max-height:50%">
+</p>
+<p>
+    "Price" and "Competition Price" are two highly related variables. One might
+    hypothesize that a lower "Price" will result in higher sales. Conversely, a
+    higher "Competition Price" would probably result in higher sales.
+</p>
+<p>
+    "Advertising" is the amount of advertising dollars spent in each region.
+    One might hypothesize that more money spent on Advertising would result in
+    higher sales.
+</p>
+<p align="center">
+    Analysis: Interpretive Models
+</p>
+<p align="center">
+    Regression
+</p>
+<p>
+    Regression analysis is a good way to start interpreting data. This method
+    allows an analyst to understand the strength of relationships between
+    variables. For example, variables like "height" and "weight" might have a
+    stronger relationship than variables like "height" and "distance from home
+    to work". Regression allows an analyst to filter out meaningless
+    relationships and keep more meaningful ones. The final regression equation
+    should tell a "story" with the remaining variables. (For full step-wise
+    regression, see my analysis of NBA player's points per game.)
+</p>
+<p>
+    I started my analysis by using each of my variables in a regression
+    equation. R software and data analysis tool pack in Excel both produce
+    useful output (called a "p-value") which indicates which variables are
+    meaningful. The lower the p-value, the better the variable. From simply
+    analyzing one model, I could quickly determine that "US", "Urban",
+    "Population", and "Education" did not have very strong relationships with
+    "sales". Therefore, two of my hypotheses regarding "Urban" and "Population"
+    were instantly debunked. I assumed that urban areas would probably demand
+    less car seats because most people would use public transportation or not
+    have children. I also assumed that areas with higher populations would
+    probably demand more car seats. While both of my hypotheses make rational
+    sense, they are not supported by the data.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/3jKt4el.png" style="width:33%">
+</p>
+<p>
+The equation that remains tells a story about the data. Higher "Income", "Competition Price", "Advertising", and Shelve Lock quality all correlate positively with sales. For example, areas that experience more advertising, on average, will experience higher sales. Conversely, "Price" and "Age" both correlated negatively with Sales. For example, areas with higher prices, on average, produced lower sales. Age probably demonstrated a negative correlation because younger people typically have younger children who need car seats while older people's children have probably moved on from car seats. I can tell whether a relationship is positive or negative by noting whether a minus sign is next to the numbers in the "estimate" column. 
+</p>
+<P align="center">
+<img src="https://i.imgur.com/qCNGk2n.png" style="width:50%" style="float:right" >
+<img src="https://i.imgur.com/BXPd1CH.png" style="width:33%">
+</P>
+<p>
+    While some of these connections may seem obvious, like the connection
+    between advertising and sales, it is important to back up these assumptions
+    with concrete numbers. Instead of telling a manager that their advertising
+    campaign is "probably working", I can state with confidence that the
+    advertising campaign is effective. In fact, by interpreting the "estimate"
+    column in the regression output above, I could state that "all variables
+    held equal, on average, every 1000 dollars in advertising increases sales
+    by 166 units." Furthermore, my assumptions regarding "Population" and
+    "Urban" were debunked. Therefore, regression analysis is a great place to
+    start understanding which assumptions are truly supported by data.
+</p>
+<p align="center">
+    Decision Trees
+</p>
+<p>
+    While regression is useful to test assumptions and understand individual
+    variables, decision trees allow an analyst to dive deeper by analyzing
+    combinations of variables. Decision trees are used to sort data into
+    different categories; therefore, I divided the "sales" variable into "good"
+    and "poor" categories. (see appendix 3a.) (see 3b. to see how I made the
+    "PriceWon" variable.) Decision trees also produce insightful visuals which
+    can be understood by practically anyone.
+</p>
+<p>
+    If the label at a split is considered "true", the data is sorted in the
+    left branch; if the label at the split is considered "false", the data is
+    sorted to the right branch. For example, all observations are first sorted
+    into observations with a good shelf lock (to the left) and those with
+    medium or bad shelf locks (to the right). Of all the observations with
+    "good" shelf locks, observations that won on price exhibited good sales on
+    average while those that did not win on price exhibited poor sales on
+    average
+</p>
+<p align="center">
+<img src="https://i.imgur.com/8hx5vPC.png" style="width:45%">
+</p>
+<p>
+    The model above is called a "pruned" decision tree because some of the
+    branches have been "trimmed" away to create a more understandable model. (R
+    software allows the user to determine the number of branches manually.) A
+    simple decision tree like the one above could be submitted to a manager
+    without any explanation to give a quick overview of the dataset.
+</p>
+<p>
+    I decided to generate a more accurate and complicated decision tree with 9
+    terminal nodes or categories. This decision tree may be more difficult to
+    read but it is optimized for accuracy. (See appendix for 3d. for pruning
+    and full tree.) This more complicated tree still demonstrates that Shelf
+    Lock quality is the most important factor and that winning on price is the
+    second most important. Therefore, I could divide the dataset into four
+    separate categories: "Good Shelf Lock and Price Won", "Good Shelf Lock and
+    Price Lost", "Bad or Medium Shelf Lock and Price Won", and "Bad or Medium
+    Shelf Lock and Price Lost". Diving deeper into each category unfolds an
+    intricate plot. I may not toss this decision tree in front of a manager
+    without explanation but I could sit down for twenty minutes and explain the
+    more nuanced parts of the story.
+</p>
+<p>
+    The first category, "Good Shelf Lock and Price Won" is a best-case
+    scenario. This simple scenario occurred in 54 out of the 400 geographic
+    regions, 51 of which demonstrated "good" sales. Furthermore, this scenario
+    generated average sales of approximately 11,300 units which is well above
+    the mean of 7,500 units. I would recommend that a manager try to replicate
+    this scenario as much as possible. Nevertheless, price and quality are
+    naturally contradictory factors; therefore, having "the best of both
+    worlds" is not always possible.
+</p>
+<p>
+    The second category, "Good Shelf Lock and Price Lost" is slightly more
+    complicated than the previous one. The more complicated decision tree notes
+    that advertising is a particularly important factor in this scenario. 14
+    different geographic regions in this category advertised with less than
+    $8,500. Of these regions, 93% fell into the "Poor" category and the entire
+    category generated an average sales of 6,900 units, slightly below average.
+    17 different geographic regions advertised with more than $8,500; 83% of
+    these fell into the "Good" category. This sub-category also generated an
+    above-average sales figure of about 9,400 units. Therefore, losing at price
+    is does not necessarily guarantee poor sales if the quality is good. I
+    would advise the manager to boost the advertising budget if price is lost.
+</p>
+<p>
+    The figure below represents the first two categories. The "best case
+    scenario" category is the branch to the far right while the second category
+    is represented by the two branches on the left.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/FVhB5lG.png" style="width:33%">
+</p>
+<p>
+    The figure below demonstrates why the third category, "Bad or Medium Shelf
+    Lock and Price Won", is by far the most complicated scenario. Nevertheless,
+    it is important to analyze because 220 of the 400 observations fall into
+    this broad group. This category represents a "cost leadership" strategy
+    which is typically coupled with lower quality. The numerous subgroupings in
+    this category prove that it is not merely enough to win with price; a more
+    nuanced approach must be taken. Advertising certainly combines well with
+    cost leadership. 85 regions in this broad category advertised over $7,500;
+    65% of these regions demonstrated "Good" sales and the average sales in
+    this subgrouping was 8,600 units. While these sales figures are not
+    amazing, they still demonstrate that some advertising helps a cost
+    leadership strategy.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/8ZvBA3b.png" style="width:50%">
+</p>
+<p>
+    While advertising does help with a cost leadership strategy, the majority
+    of these observations advertised less than $7,500. While a good price is
+    still effective without advertising, effective targeting is also important.
+    Cost leaders with low advertising budgets that marketed toward older
+    markets performed particularly poorly. Of the 85 observations in this
+    category, 85% of them are categorized as demonstrating "Poor" sales. Older
+    parents with younger children are probably sensitive to low quality.
+</p>
+<p>
+    Even among the remaining observations where cost leadership was targeted at
+    younger markets, quality remained a concern. Among these observations, 89%
+    of "Bad" Shelf Locks demonstrated "Poor" sales while only 29% of "Medium"
+    Shelf Lock regions demonstrated "Poor" sales. Therefore, the detailed
+    subgroupings of this branch demonstrate that appropriate target marketing
+    and quality are necessary to perform well as a cost leader with a low
+    advertising budget.
+</p>
+<p>
+    The last category, "Bad or Medium Shelf Lock and Price Lost" represents a
+    worst-case scenario. Nevertheless, high levels of advertising can improve
+    the situation. 9 geographic regions in this category advertised
+    aggressively with more than $18,500; 5 of these demonstrated "Good" sales.
+    Overall this subcategory demonstrated an average sales of 7,100 units.
+    While this figure may be slightly below average, it is much better than the
+    subcategory which advertised with less than $18,500. Out of the 86 regions
+    in this category, 85 of demonstrated "Poor" sales! Furthermore, this
+    subcategory exhibited a dismal average sales of 4,600. Therefore, high
+    levels of advertising can be used to improve this worst-case scenario.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/S0gDtRy.png" style="width:33%">
+</p>
+<p align="center">
+    Prediction
+</p>
+<p>
+    Predicting the future is a great way to make decisions in the present. If a
+    manager was considering entering a new region, I could predict whether or
+    not the region would generate "good" or "poor" sales with relative
+    accuracy. While interpretive models are capable of generating predictions,
+    specialized predictive models are typically much more effective.
+</p>
+<p>
+    In order to test a predictive algorithm, it is necessary to divide the
+    dataset into training and testing sets. I then use a method called "cross
+    validation" to test my predictive algorithm for accuracy. (See appendix 4
+    a,b, and c for code and output.) This method simulates a realistic
+    forecasting situation in which outcomes are not known.
+</p>
+<p>
+    I decided to use a decision tree to forecast whether or not a sales region
+    is considered either "good" or "poor". This method produced a
+    misclassification rate of 26%. Below is an image of the "confusion matrix",
+showing how certain objects are misclassified. The columns represent the    <em>actual</em> number of "good" and "poor" observations while the rows
+    represent the <em>predicted</em> number of both classes. Note that the
+    decision tree incorrectly predicted 23% of "poor" observations while
+    incorrectly predicting 30% of "good" observations. Perhaps regions that
+    fall into the "good" category exhibit more complicated patterns that are
+    difficult to pick up with just one decision tree.
+</p>
+<p align="center">
+<img src="https://i.imgur.com/LrFtnPd.png" style="width:33%">
+</p>
+<p>
+Predicting aspects of this more complicated story can be captured by specialized predictive algorithms like random forest. Random forest uses a method called "bootstrap" to replicate the dataset into numerous, slightly different variations of the original dataset. It then uses a parameter called "mtry" to generate many different decision trees. Mtry determines the number of variables that are randomly available in each split of each tree. Therefore, each split of each tree in a random forest is not allowed to access every variable. This effect allows random forest to generate many different trees which capture many different parts of the "story". (See the appendix 4c to see how I tuned mtry.) The complicated story captured by random forest leads to more accurate prediction results. Applying random forest to the same subsection of data as the decision tree resulted in a 10% drop in the misclassification rate! Below is an image of the confusion matrix. Notice how both types of misclassification have dropped compared to the decision tree. 
+</p>
+<p align="center">
+<img src="https://i.imgur.com/usaGy4G.png" style="width:33%">
+</p>
+<p>
+Predictive models tend to be more difficult to interpret that interpretive models because of their immense complexity. Analyzing every decision tree in a random forest is simply not as effective as analyzing a well-pruned decision tree. Nevertheless, random forest does offer a feature in R called an "importance report" which compares the relative importance of each variable. The importance report also highlights variables that we already knew were important, like "Shelf Lock" and "Price Won". Random Forest can also uncover variables that may have been overlooked in earlier interpretive models, like "US" which demonstrates an impact on this random forest prediction. 
+</p>
+<p align="center">
+<img src="https://i.imgur.com/QbTzzZF.png" style="width:40%">
+</p>
+<p align="center">
+    Conclusion
+</p>
+<p>
+    Different conclusions can be made from different parts of the analysis.
+    Regression analysis eliminated "US", "Urban", "Education", and "Population"
+    as extremely important variables. (Random forest did hint that US may be
+    important.) Furthermore, it debunked potential theories regarding "Urban"
+    and "Population's" role in effecting "Sales". Regression analysis also
+    found positive correlations with "Sales" and the following variables:
+    "Advertising", "Competition Price", "Income", and "Shelf Lock". Therefore,
+    higher levels of these variables, on average, result in higher sales.
+    Regression also discovered that smaller levels of "Price" and "Age", on
+    average, result in higher sales. Decision trees generated meaningful
+    insights on combinations of variables. They determined that shelf lock
+    quality and winning on price are a powerful combination. I decided to
+    categorize the data into four main categories: "Good Shelf Lock and Price
+    Won", "Good Shelf Lock and Price Lost", "Bad or Medium Shelf Lock and Price
+    Won", and "Bad or Medium Shelf Lock and Price Lost". Fully analyzing each
+    of these scenarios produced valuable information regarding situational
+    management. One of the most important insights from the decision trees is
+    that advertising is crucial if price is lost. Lastly, random forest allowed
+    us to predict whether or not a region would be classified as "good" or
+    "poor" with much more accuracy than a decision tree. It also unveiled that
+    whether a region is in the US or another country may have meaning that
+    could be researched further. Therefore, my analysis allows a manager to
+    understand how different variables impact sales, how to manage different
+    regions in different scenarios, and predict how a new region might perform
+    in sales.
+</p>
+<p align="center">
+    Appendix
+</p>
+<p>
+    1) Making a boxplot for "Sales":
+</p>
+<p>
+    code:
+</p>
+<p>
+    boxplot(Carseats$Sales,main="Sales",horizontal=TRUE)
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/2wT8vVA.png" style="width:50%">
+</p>
+<p>
+    2) Regression Analysis with every variable:
+</p>
+<p>
+    a.
+</p>
+<p>
+    code:
+</p>
+<p>
+    linearRegressionCarseats = glm(Sales~Population + Advertising + Price +
+    CompPrice + Income + Age + Education + Urban + US +
+    ShelveLoc,data=Carseats)
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/PMDEJ8F.png" style="width:50%" style="float:right">
+<img src="https://i.imgur.com/3jKt4el.png" style="width:33%">
+</p>
+<p>
+    Variables with large p-values (no asterisks ) were tossed out of the
+    analysis.
+</p>
+<p>
+    b. Improved Regression without "US", "Urban", "Education", and "Population"
+</p>
+<P align="center">
+<img src="https://i.imgur.com/qCNGk2n.png" style="width:50%" style="float:right" >
+<img src="https://i.imgur.com/BXPd1CH.png" style="width:33%">
+</P>
+<p>
+    The first column of numbers under "Estimate" are used to understand the
+    correlation between different variables and "Sales". (For example, all
+    variables held equal, on average, one year of age results in 461 less units
+    of sales.) Notice that all of the p-values are extremely low.
+</p>
+<p>
+    3. Decision Trees
+</p>
+<p>
+    a. dividing sales into a categorical variable
+</p>
+<p>
+    code:
+</p>
+<p>
+    SalesC = rep(0,400)
+</p>
+<p>
+    loop = 1:400
+</p>
+<p>
+    for(i in loop){
+</p>
+<p>
+    if(Carseats$Sales[i]&gt;8){
+</p>
+<p>
+    SalesC[i] = "good"
+</p>
+<p>
+    } else {
+</p>
+<p>
+    SalesC[i] = "poor"
+</p>
+<p>
+    }
+</p>
+<p>
+    }
+</p>
+<p>
+    Carseats = data.frame(Carseats,SalesC)
+</p>
+<p>
+    output:
+</p>
+<p>
+    new categorical variable called SalesC, attached to Carseats dataset
+</p>
+<p>
+    b. creating the PriceWon variable
+</p>
+<p>
+    PriceWon = rep(0,400)
+</p>
+<p>
+    loop = 1:400
+</p>
+<p>
+    for(i in loop){
+</p>
+<p>
+    if(Carseats$Price[i]&lt;Carseats$CompPrice[i]){
+</p>
+<p>
+    PriceWon[i] = "Yes"
+</p>
+<p>
+    } else {
+</p>
+<p>
+    PriceWon[i] = "No"
+</p>
+<p>
+    }
+</p>
+<p>
+    }
+</p>
+<p>
+    Carseats = data.frame(Carseats,PriceWon)
+</p>
+<p>
+    output:
+</p>
+<p>
+    PriceWon variable attached to Carseats dataset
+</p>
+<p>
+    c. Making smaller decision tree with 5 terminal nodes
+</p>
+<p>
+    code:
+</p>
+<p>
+    tree.Carseats = tree(SalesC~Population + Advertising + Price + CompPrice +
+    Income + PriceWon + Age + Education + Urban + US + ShelveLoc,data=Carseats)
+</p>
+<p>
+    cv.tree.Carseats = cv.tree(tree.Carseats)
+</p>
+<p>
+    model.tree.Carseats = prune.tree(tree.Carseats,best=5)
+</p>
+<p>
+    plot(model.tree.Carseats)
+</p>
+<p>
+    text(model.tree.Carseats,pretty=0)
+</p>
+<p>
+    output:
+</p>
+</p>
+<p align="center">
+<img src="https://i.imgur.com/8hx5vPC.png" style="width:45%">
+</p>
+<p>
+    d. determining optimal number of terminal nodes:
+</p>
+<p>
+    code:
+</p>
+<p>
+    plot(cv.tree.Carseats$size,cv.tree.Carseats$dev)
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/hxNyyhr.png" style="width:50%">
+</p>
+<p>
+    Note that 3,7,9, and 10 are all roughly in the same range of accuracy. I
+    chose 9.
+</p>
+<p>
+    e. pruning the tree to 9 nodes
+</p>
+<p>
+    code:
+</p>
+<p>
+    model.tree.Carseats = prune.tree(tree.Carseats,best=9)
+</p>
+<p>
+    plot(model.tree.Carseats)
+</p>
+<p>
+    text(model.tree.Carseats,pretty=0)
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/LIT5zdd.png" style="width:75%">
+</p>
+<p>
+    4. Predicting
+</p>
+<p>
+    a. dividing dataset into 4 training and test sets
+</p>
+<p>
+    code:
+</p>
+<p>
+    allrows = 1:nrow(Carseats)
+</p>
+<p>
+    set.seed(9)
+</p>
+<p>
+    #partition1
+</p>
+<p>
+    testrows1 = sample(allrows, replace=FALSE, 100)
+</p>
+<p>
+    testC1 = Carseats[testrows1,]
+</p>
+<p>
+    trainC1 = Carseats[-testrows1,]
+</p>
+<p>
+    trainrows1 = 1:nrow(trainC1)
+</p>
+<p>
+    #partition2
+</p>
+<p>
+    testrows2 = sample(trainrows1, replace = FALSE, 100)
+</p>
+<p>
+    testC2 = trainC1[testrows2,]
+</p>
+<p>
+    remainC2 = trainC1[-testrows2,]
+</p>
+<p>
+    remainingC2 = 1:nrow(remainC2)
+</p>
+<p>
+    trainC2 = rbind(remainC2,testC1)
+</p>
+<p>
+    #partition 3
+</p>
+<p>
+    testrows3 = sample(remainingC2,replace = FALSE, 100)
+</p>
+<p>
+    testC3 = remainC2[testrows3,]
+</p>
+<p>
+    remainC3 = remainC2[-testrows3,]
+</p>
+<p>
+    remainingC3 = 1:nrow(remainC3)
+</p>
+<p>
+    trainC3 = rbind(remainC3,testC1,testC2)
+</p>
+<p>
+    #partition 4
+</p>
+<p>
+    testC4 = remainC3
+</p>
+<p>
+    trainC4 = rbind(testC1,testC2,testC3)
+</p>
+<p>
+    output:
+</p>
+<p>
+    data is divided into 4 training and test sets
+</p>
+<p>
+    b. predicting with CART
+</p>
+<p>
+    ####### test set 2
+</p>
+<p>
+    Cart2 = tree(SalesC~Population + Advertising + Price + CompPrice + Income +
+    PriceWon + Age + Education + Urban + US + ShelveLoc,data=trainC2)
+</p>
+<p>
+    Cart.predict = predict(Cart2,newdata=testC2,type="class")
+</p>
+<p>
+    tableT2 = table(Cart.predict,testC2$SalesC)
+</p>
+<p>
+    ########## test set 3
+</p>
+<p>
+    Cart3 = tree(SalesC~Population + Advertising + Price + CompPrice + Income +
+    PriceWon + Age + Education + Urban + US + ShelveLoc,data=trainC3)
+</p>
+<p>
+    Cart3.predict = predict(Cart3,newdata=testC3,type="class")
+</p>
+<p>
+    tableT3 = table(Cart3.predict,testC3$SalesC)
+</p>
+<p>
+    ########## test set 4
+</p>
+<p>
+    Cart4 = tree(SalesC~Population + Advertising + Price + CompPrice + Income +
+    PriceWon + Age + Education + Urban + US + ShelveLoc,data=trainC4)
+</p>
+<p>
+    Cart4.predict = predict(Cart4,newdata=testC4,type="class")
+</p>
+<p>
+    tableT4 = table(Cart4.predict,testC4$SalesC)
+</p>
+<p>
+    ####### total table
+</p>
+<p>
+    tableT2 + tableT3 + tableT4
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/LrFtnPd.png" style="width:33%">
+</p>
+<p>
+    c. predicting with random forest
+</p>
+<p>
+    - tuning mtry
+</p>
+<p>
+    code:
+</p>
+<p>
+    MSE.Rf=rep(0,9)
+</p>
+<p>
+    for(d in 1:9){
+</p>
+<p>
+    rf.Carseats =
+    randomForest(SalesC~CompPrice+Income+Advertising+Price+ShelveLoc+Age+Income+Advertising+Urban+US+PriceWon,data
+    = trainC1,mtry=d,importance = TRUE)
+</p>
+<p>
+    predict.rf.Carseats = predict(rf.Carseats,newdata = testC1)
+</p>
+<p>
+    MSE.Rf[d] = mean(predict.rf.Carseats!=testC1$SalesC)
+</p>
+<p>
+    }
+</p>
+<p>
+    MTRY = c(1:9)
+</p>
+<p>
+    plot(MTRY,MSE.Rf,type="b",col="red")
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/Ac46zh3.png" style="width:50%">
+</p>
+<p>
+    - predicting with an mtry of 5
+</p>
+<p>
+    code:
+</p>
+<p>
+    ##### test set 2
+</p>
+<p>
+    rf.Carseats2 =
+    randomForest(SalesC~CompPrice+Income+Advertising+Price+ShelveLoc+Age+Income+Advertising+Urban+US+PriceWon,data
+    = trainC2,mtry=3,importance = TRUE)
+</p>
+<p>
+    predict.rf.Carseats = predict(rf.Carseats2,newdata = testC2)
+</p>
+<p>
+    table2 &lt;- table(predict.rf.Carseats,testC2$SalesC)
+</p>
+<p>
+    importance(rf.Carseats2)
+</p>
+<p>
+    ########## test set 3
+</p>
+<p>
+    rf.Carseats3 =
+    randomForest(SalesC~CompPrice+Income+Advertising+Price+ShelveLoc+Age+Income+Advertising+Urban+US+PriceWon,data
+    = trainC3,mtry=3,importance = TRUE)
+</p>
+<p>
+    predict.rf.Carseats3 = predict(rf.Carseats3,newdata = testC3)
+</p>
+<p>
+    table3 &lt;- table(predict.rf.Carseats3,testC3$SalesC)
+</p>
+<p>
+    ######## test set 4
+</p>
+<p>
+    rf.Carseats4 =
+    randomForest(SalesC~CompPrice+Income+Advertising+Price+ShelveLoc+Age+Income+Advertising+Urban+US+PriceWon,data
+    = trainC4,mtry=3,importance = TRUE)
+</p>
+<p>
+    predict.rf.Carseats4 = predict(rf.Carseats4,newdata = testC4)
+</p>
+<p>
+    table4 &lt;- table(predict.rf.Carseats4,testC4$SalesC)
+</p>
+<p>
+    ####### full table
+</p>
+<p>
+    totalTable &lt;- table2 + table3 + table4
+</p>
+<p>
+    totalTable
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/usaGy4G.png" style="width:33%">
+</p>
+<p>
+    - importance report
+</p>
+<p>
+    code:
+</p>
+<p>
+    importance(rf.Carseats)
+</p>
+<p>
+    output:
+</p>
+<p align="center">
+<img src="https://i.imgur.com/QbTzzZF.png" style="width:40%">
+</p>
 
-</p>
-<br>
-<br>
-<img src="https://i.imgur.com/Tx1S5Do.png">
-<br>
-<br>
-<p>
-Before analyzing the dataset, I thought that the "population" statistic would be quite significant. One might conjecture that a large population would exhibit large sales while a smaller population would exhibit less sales. Nevertheless, the following pivot table demonstrates that the "population" statistic hardly impacts sales. (I divided "population" into a categorical variable based on quartile using a nested if function in excel.)
-
-</p>
-<br>
-<br>
-<img src="https://i.imgur.com/PRc1wgh.png">
-<br>
-<br>
-<p>
-While "population" was not significant, "age" does appear to be significant. This variable is the average age of the local population. The pivot table below demonstrates that younger populations tend to produce more sales than younger populations. One might infer that younger populations have younger children who still require car seats as opposed to older populations who probably have older children.
-</p>
-<br>
-<br>
-<img src="https://i.imgur.com/Duw7iWH.png">
