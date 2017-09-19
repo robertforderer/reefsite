@@ -1,8 +1,9 @@
-<a href="index.html"> Back to Home Page </a></li>
-        <div>
+<a href="index.html" class="btn"> Back to Home Page </a>
+        <div style="margin-right:10%; margin-left:10%;">
     <p align="right">
         <strong>Team Alfa</strong>
     </p>
+    
     <p align="right">
         Robert Forderer
     </p>
@@ -29,7 +30,7 @@
         the distance between each team and every possible opponent in the NFL.
         We then implemented the constraints and assumptions that affect the
         current NFL schedule. We were then able to develop a linear program
-        using Open Solver to arrive at an optimal distance. The optimization of
+        using Open Solver to arrive at an optimal schedule. The optimization of
         the NFL schedule will result in lower traveling costs. In addition to
         traveling costs, our solution has implications such as reducing fuels
         costs and environmental impact of energy use to travel.
@@ -54,20 +55,7 @@
         use a method called linear programming to create a more cost effective
         and environmentally friendly schedule.
     </p>
-    <p>
-        In addition to creating an NFL schedule that minimized the distance
-        traveled. Our group also heuristically assigned home and away games in
-        order to close the gap in traveling inequality. The current top 3 teams
-        who travel the most are Los Angeles, Oakland, Seattle. Rams accumulated
-        37,000 miles during 2016 partly because Rams moved from St. Louis to
-        Los Angeles. The Rams, Seahawks, and Raiders accumulated a total of
-        85,000 miles. West coast teams typically travel more miles than east
-        coast teams because most teams are located on the east coast. Our group
-        attempted to assign home and away games in order to create more
-        equality in terms of traveling distance among the teams. However,
-        heuristically assigning home and away games proved to be more difficult
-        than we thought, so we were unable to perform this task.
-    </p>
+    
     <p>
         Problem Description
     </p>
@@ -96,7 +84,7 @@
         breakdown of the NFL’s 32 teams and how they are divided into two 16
         team conferences: the NFC and the AFC. These two conferences are then
         divided into four divisions containing four teams each. Every team
-        plays every other team in its own division twice, totally six
+        plays every other team in its own division twice, totalling six
         inter-division games for each team. In addition, each team also plays
         teams out of its division but in its conference six times. Finally,
         each team plays four teams in the opposite conference. The sum of these
@@ -104,23 +92,22 @@
         created once one bye per team is added.
     </p>
     <p align="center">
-        <strong>
-            <em>Figure 1: NFL Conference &amp; Division Breakdown</em>
-        </strong>
+        <img src="https://i.imgur.com/hPNLgVM.png" style="width:70%">
+    </p>
+    <p>
+        There are also constraints for home and away games. Every team plays every team within its division once at home and once away each season. They also play three inter-conference games at home and three inter-conference games away. Lastly, the teams play two intra-conference games at home and two intra-conference games away. The total for each team is eight home games, eight away games, and one bye. 
     </p>
     <p>
         The last important rule in the NFL scheduling problem is the fact that
         non-division teams cannot play each other more than once. The number of
-teams, and the number of games allows teams to        <strong><em>not</em></strong> play each other. Every season, each team
+        teams, and the number of games allows teams to        play each other. Every season, each team
         plays only 13 out of 32 teams. This fact leads to many possible
         variations of the NFL schedule. Therefore, our objective is to use
         linear programming to locate the variation that minimizes the total
         distance traveled.
     </p>
     <p>
-        A key assumption of our problem is that each NFL team travels the same.
-        Therefore, one mile traveled by one team will be counted the same as
-        one mile traveled by another. Furthermore, we are only considering air
+        A key assumption of our problem is that we are only considering air
         travel miles between each city, and excluding other travel distances
         such as buses to the stadiums and hotel. Another assumption is that
         each team will fly back home after each away game. In reality, teams
@@ -138,7 +125,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
     <p>
         Our problem contained more than 17,000 variables by considering every
         possible game in every possible week. Nevertheless, robust Open Solver
-        software was able to solve the problem in approximately ten minutes.
+        software was able to solve the problem in approximately 90 seconds.
         The schedule resembled a normal NFL schedule, with every team playing
         sixteen games with a bye. Furthermore, the scheduling traditions of the
         NFL described above were also met. The software produced a schedule
@@ -173,8 +160,9 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         realistically be implemented, adding those two improvements might make
         a schedule that could actually compete with the NFL's current schedule.
     </p>
-    <p>
-        Appendix starts next page.
+    </div>
+    <p align="center">
+        Appendix:
     </p>
     <p>
         Minimizing Distance Traveled
@@ -186,139 +174,95 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Mijt = Whether or not a Match up occurs between team i and team j in
         week t where i = 1-32, j = 1-32, t = 1-17
     </p>
-</div>
+
 <br clear="all"/>
 <div>
-    <p>
-        Teams i and j:
-    </p>
-    <p>
-        AFC
-    </p>
-    <p>
-        AFC North:
-    </p>
-    <p>
-        1. Baltimore
-    </p>
-    <p>
-        2. Cincinnati
-    </p>
-    <p>
-        3. Cleveland
-    </p>
-    <p>
-        4. Pittsburgh
-    </p>
-    <p>
-        AFC South:
-    </p>
-    <p>
-        5. Houston
-    </p>
-    <p>
-        6. Indianapolis
-    </p>
-    <p>
-        7. Jacksonville
-    </p>
-    <p>
-        8. Nashville
-    </p>
-    <p>
-        AFC East:
-    </p>
-    <p>
-        9. Buffalo
-    </p>
-    <p>
-        10. Miami
-    </p>
-    <p>
-        11. New York Jets
-    </p>
-    <p>
-        12. Boston
-    </p>
-    <p>
-        AFC West:
-    </p>
-    <p>
-        13. Denver
-    </p>
-    <p>
-        14. Kansas City
-    </p>
-    <p>
-        15. Oakland
-    </p>
-    <p>
-        16. San Diego
-    </p>
-    <p>
-        NFC
-    </p>
-    <p>
-        NFC North:
-    </p>
-    <p>
-        17. Chicago
-    </p>
-    <p>
-        18. Detroit
-    </p>
-    <p>
-        19. Green Bay
-    </p>
-    <p>
-        20. Minneapolis
-    </p>
-    <p>
-        NFC South:
-    </p>
-    <p>
-        21. Atlanta
-    </p>
-    <p>
-        22. Charlotte
-    </p>
-    <p>
-        23. New Orleans
-    </p>
-    <p>
-        24. Tampa Bay
-    </p>
-    <p>
-        NFC East:
-    </p>
-    <p>
-        25. Dallas
-    </p>
-    <p>
-        26. New York Giants
-    </p>
-    <p>
-        27. Philadelphia
-    </p>
-    <p>
-        28. Washington
-    </p>
-    <p>
-        NFC West:
-    </p>
-    <p>
-        29. Phoenix
-    </p>
-    <p>
-        30. Los Angeles
-    </p>
-    <p>
-        31. San Francisco
-    </p>
-    <p>
-        32. Seattle
-    </p>
-</div>
+<table style="width:100%">
+    <tr>
+        <th> AFC </th>
+        <th> NFC </th>
+    </tr>
+    <tr>
+        <td> AFC North: </td>
+        <td> NFC North: </td>
+    </tr>
+    <tr>
+        <td> Baltimore </td>
+        <td> Chicago </td>
+    </tr>    
+    <tr>
+        <td> Cincinnati </td>
+        <td> Detroit </td>
+    </tr>   
+    <tr>
+        <td> Cleveland </td>
+        <td> Green Bay </td>
+    </tr>
+    <tr>
+        <td> Pittsburgh </td>
+        <td> Minneapolis </td>
+    </tr>
+    <tr>
+        <td> AFC South: </td>
+        <td> NFC South: </td>
+    </tr>
+    <tr>
+        <td> Houston </td>
+        <td> Atlanta </td>
+    </tr>
+    <tr>
+        <td> Indianapolis </td>
+        <td> Charlotte </td>
+    </tr>
+    <tr>
+        <td> Jacksonville </td>
+        <td> New Orleans </td>
+    </tr>
+    <tr>
+        <td> Nashville </td>
+        <td> Tampa Bay </td>
+    </tr>
+    <tr>
+        <td> AFC East </td>
+        <td> NFC East </td>
+    </tr>
+    <tr> 
+        <td> Buffalo </td>
+        <td> Dallas </td>
+    </tr>
+    <tr>
+        <td> Miami </td>
+        <td> New York Giants </td>
+    <tr>
+        <td> New York Jets </td>
+        <td> Philadelphia </td>
+    </tr>
+    <tr> 
+        <td> Boston (New England) </td>
+        <td> Washington </td>
+    </tr>
+    <tr> 
+        <td> AFC West: </td>
+        <td> NFC West: </td>
+    </tr>
+    <tr>
+        <td> Denver </td>
+        <td> Phoenix </td>
+    </tr>
+    <tr>
+        <td> Kansas City </td>
+        <td> Los Angeles </td>
+    </tr>
+    <tr> 
+        <td> Oakland </td>
+        <td> San Francisco </td>
+    </tr>
+    <tr>
+        <td> San Diego </td>
+        <td> Seattle </td>  
+    </tr>                
+</table>    
+    
 <br clear="all"/>
 <div>
     <p>
@@ -336,7 +280,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Objective Function:
     </p>
     <p>
-        S Dijt * Mijt = Min Z
+        Sum Dijt * Mijt = Min Z where i=1-32,j=1-32,t=1-17
     </p>
     <p>
         Constraints:
@@ -346,69 +290,66 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         considered its week off or bye)
     </p>
 </div>
-<br clear="all"/>
 <div>
     <p>
-        S M1j1 = 1 where j = 1-32
+        Sum M1j1 = 1 where j = 1-32
     </p>
     <p>
-        SM1j2 = 1 where j = 1-32
+        Sum M1j2 = 1 where j = 1-32
     </p>
     <p>
-        SM1j3 = 1 where j = 1-32
+        Sum M1j3 = 1 where j = 1-32
     </p>
     <p>
-        SM1j4 = 1 where j = 1-32
+        Sum M1j4 = 1 where j = 1-32
     </p>
     <p>
-        SM1j5 = 1 where j = 1-32
+        Sum M1j5 = 1 where j = 1-32
     </p>
     <p>
-        SM1j6 = 1 where j = 1-32
+        Sum M1j6 = 1 where j = 1-32
     </p>
     <p>
-        SM1j7 = 1 where j = 1-32
+        Sum M1j7 = 1 where j = 1-32
     </p>
     <p>
-        SM1j8 = 1 where j = 1-32
+        Sum M1j8 = 1 where j = 1-32
     </p>
     <p>
-        SM1j9 = 1 where j = 1-32
+        Sum M1j9 = 1 where j = 1-32
     </p>
     <p>
-        SM1j10 = 1 where j = 1-32
+        Sum M1j10 = 1 where j = 1-32
     </p>
     <p>
-        SM1j11 = 1 where j = 1-32
+        Sum M1j11 = 1 where j = 1-32
     </p>
     <p>
-        SM1j11 = 1 where j = 1-32
+        Sum M1j11 = 1 where j = 1-32
     </p>
     <p>
-        SM1j12 = 1 where j = 1-32
+        Sum M1j12 = 1 where j = 1-32
     </p>
     <p>
-        SM1j13 = 1 where j = 1-32
+        Sum M1j13 = 1 where j = 1-32
     </p>
     <p>
-        SM1j14 = 1 where j = 1-32
+        Sum M1j14 = 1 where j = 1-32
     </p>
     <p>
-        SM1j15 = 1 where j = 1-32
+        Sum M1j15 = 1 where j = 1-32
     </p>
     <p>
-        SM1j16 = 1 where j = 1-32
+        Sum M1j16 = 1 where j = 1-32
     </p>
     <p>
-        SM1j17 = 1 where j = 1-32
+        Sum M1j17 = 1 where j = 1-32
     </p>
 </div>
-<br clear="all"/>
+
 <div>
 </div>
-<u>
-    <br clear="all"/>
-</u>
+
 <div>
     <p>
         <u>Repeat this constraint for teams 1-32</u>
@@ -420,7 +361,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         2) No teams have weeks off in weeks 1-4 &amp; 13-17
     </p>
     <p>
-        S M11t + M22t + M33t + M44t + M55t + M66t + M77t + M88t + M99t + M1010t
+        Sum M11t + M22t + M33t + M44t + M55t + M66t + M77t + M88t + M99t + M1010t
         + M1111t + M1212t + M1313t + M1414t + M1515t + M1616t + M1717t + M1818t
         + M1919t + M2020t + M2121t + M2222t + M2323t + M2424t + M2525t + M2626t
         + M2727t + M2828t + M2929t + M3030t + M3131t + M3232t = 0 when t = 1-4,
@@ -433,7 +374,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         week 5:
     </p>
     <p>
-        S M115 + M225 + M335 + M445 + M555 + M665 + M775 + M885 + M995 + M10105
+        Sum M115 + M225 + M335 + M445 + M555 + M665 + M775 + M885 + M995 + M10105
         + M11115+ M12125 + M13135 + M14145 + M15155 + M16165 + M17175 + M18185
         + M19195 + M20205 + M21215 + M22225 + M23235 + M24245 + M25255 + M26265
         + M27275+ M28285 + M29295 + M30305 + M31315 + M32325 = 4
@@ -448,7 +389,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Baltimore:
     </p>
     <p>
-        SM11t = 1 where t = 1-17
+        Sum M11t = 1 where t = 1-17
     </p>
     <p>
         <u>Repeat this constraint for all 32 teams</u>
@@ -460,7 +401,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Baltimore:
     </p>
     <p>
-        SM1jt =12 where j = 2-16 and t = 1-17
+        Sum M1jt =12 where j = 2-16 and t = 1-17
     </p>
     <p>
         <u>
@@ -475,7 +416,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Chicago:
     </p>
     <p>
-        SM17jt = 12 where j = 17-32 and t = 1-17
+        Sum M17jt = 12 where j = 17-32 and t = 1-17
     </p>
     <p>
         <u>
@@ -490,7 +431,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Baltimore:
     </p>
     <p>
-        SM1jt = 4 where j = 17-32 and t = 1-17
+        Sum M1jt = 4 where j = 17-32 and t = 1-17
     </p>
     <p>
         <u>Repeat this constraint for each AFC team</u>
@@ -502,7 +443,7 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Chicago:
     </p>
     <p>
-        SM17jt = 4 where j = 1-16 and t = 1-17
+        Sum M17jt = 4 where j = 1-16 and t = 1-17
     </p>
     <p>
         <u>Repeat this constraint for each NFC team</u>
@@ -517,13 +458,13 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Baltimore:
     </p>
     <p>
-        SM12t = 2 where t = 1-17
+        Sum M12t = 2 where t = 1-17
     </p>
     <p>
-        SM13t = 2 where t = 1-17
+        Sum M13t = 2 where t = 1-17
     </p>
     <p>
-        SM14t = 2 where t = 1-17
+        Sum M14t = 2 where t = 1-17
     </p>
     <p>
         <u></u>
@@ -542,19 +483,88 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
         Baltimore:
     </p>
     <p>
-        SM15t &lt;= 1 where t = 1-17
+        Sum M15t &lt;= 1 where t = 1-17
     </p>
     <p>
         <u>Repeat for every non-division matchup</u>
     </p>
     <p>
-        <u></u>
+        9) Home and Away Constraints
     </p>
     <p>
-        9) Non-negativity
+    a. AFC teams play 3 non-division AFC opponents at home
     </p>
     <p>
-        10) All variables are binary
+    Sum M1jt = 3 where j=5-16, t=1-17
+    </p>
+    <p>
+    repeat for every AFC team
+    </p>
+    <p>
+    b. NFC teams play 3 non-division NFC opponents at home
+    </p>
+    <p>
+    Sum M17jt = 3 where j=21-32, t=1-17
+    </p>
+    <p>
+    repeat for every NFC team
+    </p>
+    <p>
+    c. AFC teams play 3 non-division AFC opponents on the road
+    </p>
+    <p>
+    Sum Mi1t = 3 where i=5-15, t=1-17
+    </p>
+    <p>
+    repeat for every AFC team
+    </p>
+    <p>
+    d. NFC teams play 3 non-division NFC opponents on the road
+    <p>
+    Sum Mi17t = 3 where i=21-32, t=1-17
+    </p>
+    <p>
+    e. AFC teams play 2 NFC teams at home
+    </p>
+    <p>
+    Sum M17jt = 2 where j=17-32, t=1-17
+    </p>
+    <p>
+    repeat for every AFC team
+    </p>
+    <p>
+    f. NFC teams play 2 AFC teams at home
+    </p>
+    <p>
+    Sum M17jt = 2 where j=1-16, t=1-17
+    </p>
+    <p>
+    repeat for every NFC team
+    </p>
+    <p>
+    g. AFC teams play 2 NFC teams away
+    </p>
+    <p>
+    Sum Mi1t = 2 where i=17-32, t=1-17
+    </p>
+    <p>
+    repeat for every AFC team
+    </p>
+    <p>
+    h. NFC teams play 2 AFC teams away
+    <p>
+    Sum Mi17t = 2 where i=1-16, t=1-17
+    </p>
+    <p>
+    repeat for every NFC team
+    </p>
+
+    c. 
+    <p>
+        10) Non-negativity
+    </p>
+    <p>
+        11) All variables are binary
     </p>
     <p>
         Results: Total distance traveled 190,164.81*2 = 380,331.62 miles
@@ -566,4190 +576,1040 @@ teams, and the number of games allows teams to        <strong><em>not</em></stro
     <p>
         Results: Matchups by category
     </p>
-    <p>
-        (For matchups by week see spreadsheet)
-    </p>
+   
 </div>
 <br clear="all"/>
-<div>
-    <p>
-        Baltimore:
-    </p>
-    <p>
-        Interconference:
-    </p>
-    <table border="0" cellspacing="0" cellpadding="0" width="80">
-        <tbody>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Jacksonville
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Buffalo
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        NYJ
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Boston
-                    </p>
-                    <p>
-                        Miami
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Charlotte
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        NYG
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Philedelphia
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Washington
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cleveland
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cleveland
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti:
-                    </p>
-                    <p>
-                        Interconference:
-                    </p>
-                    <p>
-                        Indianapolis:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Buffalo
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        NYJ
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Boston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        KC
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        SD
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Chi
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Atlanta
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Charlotte
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Minn
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cleveland
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Cleveland
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="80" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <p>
-        Cleveland:
-    </p>
-    <p>
-        Interconference:
-    </p>
-    <table border="0" cellspacing="0" cellpadding="0" width="65">
-        <tbody>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Buffalo
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NYJ
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Boston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Denver
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        KC
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Oak
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Chi
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Det
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        GB
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Minn
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburg
-                    </p>
-                    <p>
-                        Pittsburg:
-                    </p>
-                    <p>
-                        Interconference:
-                    </p>
-                    <table
-                        border="0"
-                        cellspacing="0"
-                        cellpadding="0"
-                        width="65"
-                    >
-                        <tbody>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Indianapolis
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Jacksonville
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Buffalo
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        NYJ
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Boston
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        KC
-                                    </p>
-                                    <p>
-                                        Intraconferenc:
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Chi
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Det
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        GB
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Washington
-                                    </p>
-                                    <p>
-                                        Interdivision
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Baltimore
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Baltimore
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Cleveland
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Cleveland
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Cincinatti
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="65" nowrap="" valign="bottom">
-                                    <p>
-                                        Cincinatti
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<br clear="all"/>
-<div>
-    <p>
-        Houston:
-    </p>
-    <p>
-        Interconference:
-    </p>
-    <table border="0" cellspacing="0" cellpadding="0" width="65">
-        <tbody>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Miami
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Denver
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        KC
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Oak
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        SD
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NO
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Dallas
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Pho
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        LA
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <p>
-        Indianapolis:
-    </p>
-    <p>
-        Interconference:
-    </p>
-    <table border="0" cellspacing="0" cellpadding="0" width="65">
-        <tbody>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Cincinatti
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Pitt
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Denver
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        KC
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Oak
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        SD
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Chicago
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        GB
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Minneapolis
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Dallas
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <p>
-        Jacksonville:
-    </p>
-    <p>
-        Interconference:
-    </p>
-    <table border="0" cellspacing="0" cellpadding="0" width="65">
-        <tbody>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Baltimore
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Pittsburgh
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Miami
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NYJ
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Boston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        SD
-                    </p>
-                    <p>
-                        Intraconference:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Atlanta
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Charlotte
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NO
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Tampa Bay
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nash
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table border="0" cellspacing="0" cellpadding="0" width="65">
-        <tbody>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Nashville:
-                    </p>
-                    <p>
-                        Interconference:
-                    </p>
-                    <p>
-                        Miami
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NYJ
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Denver
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        KC
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Oak
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        SD
-                    </p>
-                    <p>
-                        Intraconference
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        ATL
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        NO
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        TB
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Dallas
-                    </p>
-                    <p>
-                        Interdivision:
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Jack
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Houston
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td width="65" nowrap="" valign="bottom">
-                    <p>
-                        Indy
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<br clear="all"/>
-<p>
-    Buffalo:
-</p>
-<p>
-    Interconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
+<table style="width:100%">
+    <tr>
+        <th> AFC North: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Baltimore </td>
+        <td> Cincinatti </td>
+        <td> Cleveland </td>
+        <td> Pittsburg </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> vs Houston </td>
+        <td> vs Pittsburg </td>
+        <td> at Green Bay </td>
+        <td> at Cincinatti </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> at Pittsburg </td>
+        <td> vs Chicago </td>
+        <td> vs Minneapolis </td>
+        <td> vs Baltimore </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> at Buffalo </td>
+        <td> vs New York Jets </td>
+        <td> vs Detroit </td>
+        <td> at Chicago </td>
+    </tr>
+    <tr>
+        <td> week4: </td>
+        <td> vs Washington </td>
+        <td> vs Indianapolis </td>
+        <td> vs Boston </td>
+        <td> vs Jacksonville </td>
+    </tr>
+     <tr>
+        <td> week5: </td>
+        <td> at Cincinatti </td>
+        <td> vs Baltimore </td>
+        <td> vs Kansas City </td>
+        <td> at Indianapolis </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> at Boston </td>
+        <td> bye </td>
+        <td> at Oakland </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> bye </td>
+        <td> vs Cleveland </td>
+        <td> at Cincinatti </td>
+        <td> at New York Jets </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> vs Pittsburgh </td>
+        <td> vs Buffalo </td>
+        <td> at New York Jets </td>
+        <td> at Baltimore </td>
+    </tr>
+    <tr>
+        <td> week9: </td>
+        <td> vs Cleveland </td>
+        <td> at Atlanta </td>
+        <td> at Baltimore </td>
+        <td> vs Boston </td>
+    </tr>
+     <tr>
+        <td> week10: </td>
+        <td> vs New York Giants </td>
+        <td> at San Diego </td>
+        <td> at Chicago </td>
+        <td> vs Kansas City </td>
+    </tr>
+    <tr>
+        <td> week11: </td>
+        <td> at Jacksonville </td>
+        <td> at Minneapolis </td>
+        <td> bye </td>
+        <td> vs Philadelphia </td>
+    </tr>
+     <tr>
+        <td> week12: </td>
+        <td> at Philadelphia </td>
+        <td> vs Green Bay </td>
+        <td> vs Pittsburgh </td>
+        <td> at Cleveland</td>
+    </tr>
+    <tr>
+        <td> week13: </td>
+        <td> vs Miami </td>
+        <td> at Boston </td>
+        <td> at Pittsburgh </td>
+        <td> vs Cleveland </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
+        <td> week14: </td>
+        <td> vs Cincinatti </td>
+        <td> at Baltimore </td>
+        <td> vs Denver </td>
+        <td> vs Charlotte </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> vs New York Jets </td>
+        <td> at Pittsburgh </td>
+        <td> at Buffalo </td>
+        <td> vs Cincinatti </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> at Cleveland </td>
+        <td> at Kansas City </td>
+        <td> vs Baltimore </td>
+        <td> at Buffalo </td>
+    </tr>
+    <tr>
+        <td> week17: </td>
+        <td> at Charlotte </td>
+        <td> at Cleveland </td>
+        <td> vs Cincinatti </td>
+        <td> at Detroit </td>
+    </tr>
+    <tr>
+        <th> AFC South: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Houston </td>
+        <td> Indianapolis </td>
+        <td> Jacksonville </td>
+        <td> Nashville </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> at Baltimore </td>
+        <td> at Kansas City </td>
+        <td> vs Nashville </td>
+        <td> at Jacksonville </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> at Nashville </td>
+        <td> at Jacksonville </td>
+        <td> vs Indianapolis </td>
+        <td> vs Houston </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> vs Indianapolis </td>
+        <td> at Houston </td>
+        <td> at Nashville </td>
+        <td> vs Jacksonville </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs New Orleans </td>
+        <td> at Cincinatti </td>
+        <td> at Pittsburgh </td>
+        <td> at Atlanta </td>
+    </tr>
+     <tr>
+        <td> week5: </td>
+        <td> vs Jacksonville </td>
+        <td> vs Pittsburgh </td>
+        <td> at Houston </td>
+        <td> vs New York Jets </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> bye </td>
+        <td> at Dallas </td>
+        <td> vs Charlotte </td>
+        <td> at Kansas City </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> at Los Angeles </td>
+        <td> at Denver </td>
+        <td> at New Orleans </td>
+        <td> at San Diego </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> at Indianapolis </td>
+        <td> vs Houston </td>
+        <td> at Tampa Bay </td>
+        <td> at Oakland </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Miami </td>
+        <td> vs Oakland </td>
+        <td> at New York Jets </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> vs Oakland </td>
+        <td> vs Jacksonville </td>
+        <td> at Indianapolis </td>
+        <td> vs Miami </td>
+    </tr>
+    <tr>
+        <td> week11: </td>
+        <td> at San Diego </td>
+        <td> vs Nashville </td>
+        <td> vs Baltimore </td>
+        <td> at Indianapolis </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> vs Nashville </td>
+        <td> bye </td>
+        <td> bye </td>
+        <td> at Houston </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> vs Dallas </td>
+        <td> at Green Bay </td>
+        <td> vs Atlanta </td>
+        <td> vs Denver </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
+        <td> week14: </td>
+        <td> at Phoenix </td>
+        <td> vs Chicago </td>
+        <td> vs San Diego </td>
+        <td> vs Tampa Bay </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at Jacksonville </td>
+        <td> vs San Diego </td>
+        <td> vs Houston </td>
+        <td> vs Dallas </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> at Denver </td>
+        <td> at Nashville </td>
+        <td> at Miami </td>
+        <td> vs Indianapolis </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> vs Kansas City </td>
+        <td> vs Minneapolis </td>
+        <td> vs Boston </td>
+        <td> at New Orleans </td>
+    </tr>
+    <tr>
+        <th> AFC East: </th>
+    </tr>
+    <tr> 
+        <td></td>
+        <td> Buffalo </td>
+        <td> Miami </td>
+        <td> New York Jets </td>
+        <td> Boston </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> vs Boston </td>
+        <td> at Charlotte </td>
+        <td> vs New York Giants </td>
+        <td> at Buffalo </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> at Detroit </td>
+        <td> vs Boston </td>
+        <td> vs Tampa Bay </td>
+        <td> at Miami </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> vs Baltimore </td>
+        <td> at Tampa Bay </td>
+        <td> at Cincinatti</td>
+        <td> at New York Giants </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs Miami </td>
+        <td> at Buffalo </td>
+        <td> at Philadelphia </td>
+        <td> at Cleveland </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> vs Washington </td>
+        <td> bye </td>
+        <td> at Nashville </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> at New York Jets </td>
+        <td> vs San Diego </td>
+        <td> vs Buffalo </td>
+        <td> vs Baltimore </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> at Miami </td>
+        <td> vs Buffalo </td>
+        <td> vs Pittsburgh </td>
+        <td> vs Philadelphia </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> at Cincinatti </td>
+        <td> at Boston </td>
+        <td> vs Cleveland </td>
+        <td> vs Miami </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Green Bay </td>
+        <td> at Houston </td>
+        <td> vs Jacksonville </td>
+        <td> at Pittsburgh </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> at Denver </td>
+        <td> at Nashville </td>
+        <td> bye </td>
+        <td> at Washington </td>
+    </tr>
+    <tr>
+        <td> week11: </td>
+        <td> at New York Giants </td>
+        <td> vs New Orleans </td>
+        <td> at Boston </td>
+        <td> vs New York Jets </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> bye </td>
+        <td> vs Atlanta </td>
+        <td> at Washington </td>
+        <td> vs Detroit </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsurg
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> vs New York Jets </td>
+        <td> at Baltimore </td>
+        <td> at Buffalo </td>
+        <td> vs Cincinatti </td>
+    </tr>
+       <tr>
+        <td> week14: </td>
+        <td> at Boston </td>
+        <td> vs New York Jets </td>
+        <td> at Miami </td>
+        <td> vs Buffalo </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> vs Cleveland </td>
+        <td> vs Oakland </td>
+        <td> at Baltimore </td>
+        <td> vs Denver </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> vs Pittsburgh </td>
+        <td> vs Jacksonville </td>
+        <td> vs Boston </td>
+        <td> at New York Jets </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> at Oakland </td>
+        <td> at New York Jets </td>
+        <td> vs Miami </td>
+        <td> at Jacksonville </td>
+    </tr>
+    <tr>
+        <th> AFC West: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Denver </td>
+        <td> Kansas City </td>
+        <td> Oakland </td>
+        <td> San Diego </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> at San Diego </td>
+        <td> vs Indianapolis </td>
+        <td> at San Francisco </td>
+        <td> vs Denver </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> vs San Diego </td>
+        <td> vs Oakland </td>
+        <td> at Kansas City </td>
+        <td> at Denver </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> vs Oakland </td>
+        <td> at San Diego </td>
+        <td> at Denver </td>
+        <td> vs Kansas City </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs Kansas City </td>
+        <td> at Denver </td>
+        <td> at San Diego </td>
+        <td> vs Oakland </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> at Oakland </td>
+        <td> at Cleveland </td>
+        <td> vs Denver </td>
+        <td> at Los Angeles </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> vs San Francisco </td>
+        <td> vs Nashville </td>
+        <td> vs Cleveland </td>
+        <td> at Miami </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> vs Indianapolis </td>
+        <td> bye </td>
+        <td> bye </td>
+        <td> vs Nashville </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> at Seattle </td>
+        <td> at Minneapolis </td>
+        <td> vs Nashville </td>
+        <td> bye </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Los Angeles </td>
+        <td> at Dallas </td>
+        <td> at Indianapolis </td>
+        <td> vs Phoenix </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> vs Buffalo </td>
+        <td> at Pittsburgh </td>
+        <td> at Houston </td>
+        <td> vs Cincinatti </td>
+    </tr>
+     <tr>
+        <td> week11: </td>
+        <td> bye </td>
+        <td> at Oakland </td>
+        <td> vs Kansas City </td>
+        <td> vs Houston </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> at Kansas City </td>
+        <td> vs Denver </td>
+        <td> vs Phoenix </td>
+        <td> at San Francisco </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Denver
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> at Nashville </td>
+        <td> vs San Diego </td>
+        <td> at Seattle </td>
+        <td> at Kansas City </td>
+    </tr>
+       <tr>
+        <td> week14: </td>
+        <td> at Cleveland </td>
+        <td> vs San Francisco </td>
+        <td> vs Los Angeles </td>
+        <td> at Jacksonville </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at Boston </td>
+        <td> vs Seattle </td>
+        <td> at Miami </td>
+        <td> at Indianapolis </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> vs Houston </td>
+        <td> vs Cincinatti </td>
+        <td> vs San Diego </td>
+        <td> at Oakland </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> at Phoenix </td>
+        <td> at Houston </td>
+        <td> vs Buffalo </td>
+        <td> vs Seattle </td>
+    </tr>
+    <tr>
+        <th> NFC North: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Chicago </td>
+        <td> Detroit </td>
+        <td> Green Bay </td>
+        <td> Minneapolis </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> vs Los Angeles </td>
+        <td> vs Minneapolis </td>
+        <td> vs Cleveland </td>
+        <td> at Detroit </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> at Cincinatti </td>
+        <td> vs Buffalo </td>
+        <td> at New York Giants </td>
+        <td> at Cleveland </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> vs Pittsburg </td>
+        <td> at Cleveland </td>
+        <td> at Minneapolis </td>
+        <td> vs Green Bay </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> at Minneapolis </td>
+        <td> at Green Bay </td>
+        <td> vs Detroit </td>
+        <td> vs Chicago </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> bye </td>
+        <td> vs Philadelphia </td>
+        <td> vs Dallas </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> at Seattle </td>
+        <td> at Minneapolis </td>
+        <td> vs Phoenix </td>
+        <td> vs Detroit </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> at Charlotte </td>
+        <td> vs Green Bay </td>
+        <td> at Detroit </td>
+        <td> vs New York Giants </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> vs Philadelphia </td>
+        <td> at Atlanta </td>
+        <td> at San Francisco </td>
+        <td> vs Kansas City </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Washington </td>
+        <td> bye </td>
+        <td> at Buffalo </td>
+        <td> at Charlotte </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> vs Cleveland </td>
+        <td> vs Charlotte </td>
+        <td> at Philadelphia </td>
+        <td> vs Seattle </td>
+    </tr>
+     <tr>
+        <td> week11: </td>
+        <td> vs Detroit </td>
+        <td> at Chicago </td>
+        <td> bye </td>
+        <td> vs Cincinatti </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> vs Minneapolis </td>
+        <td> at Boston </td>
+        <td> at Cincinatti </td>
+        <td> at Chicago </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oakland
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> at Detroit </td>
+        <td> vs Chicago </td>
+        <td> vs Indianapolis </td>
+        <td> at San Francisco </td>
+    </tr>
+       <tr>
+        <td> week14: </td>
+        <td> at Indianapolis </td>
+        <td> vs Seattle </td>
+        <td> vs Minneapolis </td>
+        <td> at Green Bay </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at Green Bay </td>
+        <td> at Washington </td>
+        <td> vs Chicago </td>
+        <td> at Los Angeles </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> at San Francisco </td>
+        <td> at New York Giants </td>
+        <td> vs Seattle </td>
+        <td> vs Phoenix </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> vs Green Bay </td>
+        <td> vs Pittsburgh </td>
+        <td> at Chicago </td>
+        <td> at Indianapolis </td>
+    </tr>
+    <tr>
+        <th> NFC South: </th>
+    </tr>
+    <tr> 
+        <td></td>
+        <td> Atlanta </td>
+        <td> Charlotte </td>
+        <td> New Orleans </td>
+        <td> Tampa Bay </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> vs Tampa Bay </td>
+        <td> vs Miami </td>
+        <td> vs Phoenix </td>
+        <td> at Atlanta </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> vs Charlotte </td>
+        <td> at Atlanta </td>
+        <td> at Dallas </td>
+        <td> at New York Jets </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> vs Philadelphia </td>
+        <td> at New Orleans </td>
+        <td> vs Charlotte </td>
+        <td> vs Miami </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs Nashville </td>
+        <td> at Dallas </td>
+        <td> at Houston </td>
+        <td> vs Charlotte </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> at Phoenix </td>
+        <td> vs New York Giants </td>
+        <td> vs Tampa Bay </td>
+        <td> at New Orleans </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> vs New York Giants </td>
+        <td> at Jacksonville </td>
+        <td> at Los Angeles </td>
+        <td> at Philadelphia </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> at Washington </td>
+        <td> vs Chicago </td>
+        <td> vs Jacksonville </td>
+        <td> at Phoenix </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> vs Detroit </td>
+        <td> bye </td>
+        <td> vs Washington </td>
+        <td> vs Jacksonville </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Cincinatti </td>
+        <td> vs Minneapolis </td>
+        <td> at Seattle </td>
+        <td> at New York Giants </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> bye </td>
+        <td> at Detroit </td>
+        <td> vs San Francisco </td>
+        <td> bye </td>
+    </tr>
+     <tr>
+        <td> week11: </td>
+        <td> at Charlotte </td>
+        <td> vs Atlanta </td>
+        <td> at Miami </td>
+        <td> vs Washington </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> at Miami </td>
+        <td> vs Tampa Bay </td>
+        <td> bye </td>
+        <td> at Charlotte </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> at Jacksonville </td>
+        <td> at Philadelphia </td>
+        <td> at Tampa Bay </td>
+        <td> vs New Orleans </td>
+    </tr>
+       <tr>
+        <td> week14: </td>
+        <td> vs New Orleans </td>
+        <td> at Pittsburgh </td>
+        <td> at Atlanta </td>
+        <td> at Nashville </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at Tampa Bay </td>
+        <td> vs New Orleans </td>
+        <td> at Charlotte </td>
+        <td> vs Atlanta </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> at New Orleans </td>
+        <td> at Washington </td>
+        <td> vs Atlanta </td>
+        <td> vs Los Angeles </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> at Los Angeles </td>
+        <td> vs Baltimore </td>
+        <td> vs Nashville </td>
+        <td> vs San Francisco </td>
+    </tr>
+    <tr>
+        <th> NFC East: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Dallas </td>
+        <td> New York Giants </td>
+        <td> Philadelphia </td>
+        <td> Washington </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> at Seattle </td>
+        <td> at New York Jets </td>
+        <td> vs Washington </td>
+        <td> at Philadelphia </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> vs New Orleans </td>
+        <td> vs Green Bay </td>
+        <td> at Washington </td>
+        <td> vs Philadelphia </td>
+    </tr>
+    <tr>
+        <td> week3: </td>
+        <td> at Washington </td>
+        <td> vs Boston </td>
+        <td> at Atlanta </td>
+        <td> vs Dallas </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs New York Giants </td>
+        <td> at Dallas </td>
+        <td> vs New York Jets </td>
+        <td> at Baltimore </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> at Green Bay </td>
+        <td> at Charlotte </td>
+        <td> at Detroit </td>
+        <td> at Buffalo </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> vs Indianapolis </td>
+        <td> at Atlanta </td>
+        <td> vs Tampa Bay </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> vs San Francisco </td>
+        <td> at Minneapolis </td>
+        <td> at Boston </td>
+        <td> vs Atlanta </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> vs Los Angeles </td>
+        <td> bye </td>
+        <td> at Chicago </td>
+        <td> at New Orleans </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> vs Kansas City </td>
+        <td> vs Tampa Bay </td>
+        <td> bye </td>
+        <td> at Chicago </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> at Phoenix </td>
+        <td> at Baltimore </td>
+        <td> vs Green Bay </td>
+        <td> vs Boston </td>
+    </tr>
+     <tr>
+        <td> week11: </td>
+        <td> bye </td>
+        <td> vs Buffalo </td>
+        <td> at Pittsburgh </td>
+        <td> at Tampa Bay </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> at New York Giants </td>
+        <td> vs Dallas </td>
+        <td> vs Baltimore </td>
+        <td> vs New York Jets </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GreenBay
-                </p>
-            </td>
-        </tr>
+        <td> week13: </td>
+        <td> at Houston </td>
+        <td> at Washington </td>
+        <td> vs Charlotte </td>
+        <td> vs New York Giants </td>
+    </tr>
+       <tr>
+        <td> week14: </td>
+        <td> vs Washington </td>
+        <td> at Philadelphia </td>
+        <td> vs New York Giants </td>
+        <td> at Dallas </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at Nashville </td>
+        <td> vs Philadelphia </td>
+        <td> at New York Giants </td>
+        <td> vs Detroit </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> vs Philadelphia </td>
+        <td> vs Detroit </td>
+        <td> at Dallas </td>
+        <td> vs Charlotte </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> at Philadelphia </td>
+        <td> vs Washington </td>
+        <td> vs Dallas </td>
+        <td> at New York Giants </td>
+    </tr>
+    <tr>
+        <th> NFC West: </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td> Phoenix </td>
+        <td> Los Angeles </td>
+        <td> San Francisco </td>
+        <td> Seattle </td>
+    </tr>
+    <tr>
+        <td> week1: </td>
+        <td> at New Orleans </td>
+        <td> at Chicago </td>
+        <td> vs Oakland </td>
+        <td> vs Dallas </td>
+    </tr>
+    <tr>
+        <td> week2: </td>
+        <td> vs San Francisco </td>
+        <td> vs Seattle </td>
+        <td> at Phoenix </td>
+        <td> at Los Angeles </td>
+    </tr>
+   <tr>
+        <td> week3: </td>
+        <td> at Los Angeles </td>
+        <td> vs Phoenix </td>
+        <td> at Seattle </td>
+        <td> vs San Francisco </td>
+    </tr>
+     <tr>
+        <td> week4: </td>
+        <td> vs Seattle </td>
+        <td> vs San Francisco </td>
+        <td> at Los Angeles </td>
+        <td> at Phoenix </td>
+    </tr>
+    <tr>
+        <td> week5: </td>
+        <td> vs Atlanta </td>
+        <td> vs San Diego </td>
+        <td> vs Seattle </td>
+        <td> at San Francisco </td>
+    </tr>
+    <tr>
+        <td> week6: </td>
+        <td> at Green Bay </td>
+        <td> vs New Orleans </td>
+        <td> at Denver </td>
+        <td> vs Chicago </td>
+    </tr>
+    <tr>
+        <td> week7: </td>
+        <td> vs Tampa Bay </td>
+        <td> vs Houston </td>
+        <td> at Dallas </td>
+        <td> bye </td>
+    </tr>
+    <tr>
+        <td> week8: </td>
+        <td> bye </td>
+        <td> at Dallas </td>
+        <td> vs Green Bay </td>
+        <td> vs Denver </td>
+    </tr>
+     <tr>
+        <td> week9: </td>
+        <td> at San Diego </td>
+        <td> at Denver </td>
+        <td> bye </td>
+        <td> vs New Orleans </td>
+    </tr>
+    <tr>
+        <td> week10: </td>
+        <td> vs Dallas </td>
+        <td> bye </td>
+        <td> at New Orleans </td>
+        <td> at Minneapolis </td>
+    </tr>
+     <tr>
+        <td> week11: </td>
+        <td> at Seattle </td>
+        <td> at San Francisco </td>
+        <td> vs Los Angeles </td>
+        <td> vs Phoenix </td>
+    </tr>
+    <tr>
+        <td> week12: </td>
+        <td> at Oakland </td>
+        <td> at Seattle </td>
+        <td> vs San Diego </td>
+        <td> vs Los Angeles </td>
+    </tr>
         <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Phi
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-    </tbody>
+        <td> week13: </td>
+        <td> vs Los Angeles </td>
+        <td> at Phoenix </td>
+        <td> vs Minneapolis </td>
+        <td> vs Oakland </td>
+    </tr>
+    <tr>
+        <td> week14: </td>
+        <td> vs Houston </td>
+        <td> at Oakland </td>
+        <td> at Kansas City </td>
+        <td> at Detroit </td>
+    </tr>
+    <tr>
+        <td> week15: </td>
+        <td> at San Francisco </td>
+        <td> vs Minneapolis </td>
+        <td> vs Phoenix </td>
+        <td> at Kansas City </td>
+    </tr>
+    <tr>
+        <td> week16: </td>
+        <td> at Mineapolis </td>
+        <td> at Tampa Bay </td>
+        <td> vs Chicago </td>
+        <td> at Green Bay </td>
+    </tr>
+     <tr>
+        <td> week17: </td>
+        <td> vs Denver </td>
+        <td> vs Atlanta </td>
+        <td> at Tampa Bay </td>
+        <td> at San Diego </td>
+    </tr>
 </table>
-<p>
-    Miami:
-</p>
-<p>
-    Interconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Atlanta
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    New York Jets:
-</p>
-<p>
-    Interconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philedelphia
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Boston:
-</p>
-<p>
-    Interconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Denver
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philedelphia
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-                <p>
-                    Denver:
-                </p>
-                <p>
-                    Interconference:
-                </p>
-                <table border="0" cellspacing="0" cellpadding="0" width="65">
-                    <tbody>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Cleveland
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Houston
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Indy
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Nashville
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Buffalo
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Boston
-                                </p>
-                                <p>
-                                    Intraconference
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    PHO
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    LA
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    SF
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Sea
-                                </p>
-                                <p>
-                                    Interdivision:
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    KC
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    KC
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Oak
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    Oak
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    SD
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="65" nowrap="" valign="bottom">
-                                <p>
-                                    SD
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Chicago:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Indy
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philedelphia
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Kansas City:
-</p>
-<p>
-    Interconference
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Indy
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nash
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minneapolis
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Detroit:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philadelphia
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Minn
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="80">
-    <tbody>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Oakland:
-                </p>
-                <p>
-                    Interconference:
-                </p>
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Houson
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Indy
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    PhO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="80" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Green Bay:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Indy
-                </p>
-                <p>
-                    Interconference
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Minn
-</p>
-<p>
-    San Diego:
-</p>
-<p>
-    Interconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Indy
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Minneapolis:
-</p>
-<p>
-    Intraconference
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cleveland
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Indianapolis
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-                <p>
-                    Interconference
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Atlanta:
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Cincinatti
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Wash
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Dallas:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="90">
-    <tbody>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Indianapolis
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <table border="0" cellspacing="0" cellpadding="0" width="78">
-                    <tbody>
-                        <tr>
-                            <td width="78" nowrap="" valign="bottom">
-                                <table
-                                    border="0"
-                                    cellspacing="0"
-                                    cellpadding="0"
-                                    width="65"
-                                >
-                                    <tbody>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Charlotte:
-                                                </p>
-                                                <p>
-                                                    Intraconference
-                                                </p>
-                                                <p>
-                                                    Baltimore
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Jacksonville
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Miami
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Cincinatti
-                                                </p>
-                                                <p>
-                                                    Interconference
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Detroit
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Minneapolis
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Chicago
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    NYG
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Phil
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    Wash
-                                                </p>
-                                                <p>
-                                                    Interdivision:
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    NO
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    NO
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    TB
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    TB
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    ATL
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td
-                                                width="65"
-                                                nowrap=""
-                                                valign="bottom"
-                                            >
-                                                <p>
-                                                    ATL
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    New York Giants:
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Atlanta
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    New Orleans:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Phildelphia:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="90">
-    <tbody>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Buffalo
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="90" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Tampa Bay:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Nashville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Miami
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Jacksonville
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Washington
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Char
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Washington:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Baltimore
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Pittsburg
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYJ
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Boston
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chicago
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Detroit
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Charlotte
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Philly
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NYG
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Phoenix:
-                </p>
-                <p>
-                    Intraconference:
-                </p>
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Denver
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    ATL
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Los Angeles:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Houston
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    TB
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    San Francisco:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="82">
-    <tbody>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Atl
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="82" nowrap="" valign="bottom">
-                <p>
-                    Sea
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    Seattle:
-</p>
-<p>
-    Intraconference:
-</p>
-<table border="0" cellspacing="0" cellpadding="0" width="65">
-    <tbody>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SD
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Oak
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    KC
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Den
-                </p>
-                <p>
-                    Interconference:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Chi
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Det
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    GB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Minn
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    Dallas
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    NO
-                </p>
-                <p>
-                    Interdivision:
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    PHO
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    LA
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="65" nowrap="" valign="bottom">
-                <p>
-                    SF
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-    </body>
-</html>
