@@ -32,6 +32,17 @@ body {
   background-color: #f7f7f7;
 }
 
+.card1 {
+  float: left;
+  width: 50%;
+  padding: .75rem;
+  border: 0;
+}
+
+.card1 > img {
+  margin-bottom: .75rem;
+  max-width: 100%;
+}
 .card {
   float: left;
   width: 33.333%;
